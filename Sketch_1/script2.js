@@ -6,10 +6,10 @@ var margin = {
     l: 25
 };
 
-var width = d3.select('#plot1').node().clientWidth - margin.r - margin.l,
-    height = d3.select('#plot1').node().clientHeight - margin.t - margin.b;
+var width = d3.select('#plot2').node().clientWidth - margin.r - margin.l,
+    height = d3.select('#plot2').node().clientHeight - margin.t - margin.b;
 
-var plot1 = d3.select('#plot1')
+var plot2 = d3.select('#plot2')
     .append('svg')
     .attr('width', width + margin.r + margin.l)
     .attr('height', height + margin.t + margin.b);
@@ -28,6 +28,10 @@ var queue = d3.queue()
     .await(dataloaded);
 
 function dataloaded(err, data, map) {
+    console.log(data);
+    console.log(map);
+    console.log(populationPerState);
+
     // get max and min values of data
     var enrolledExtent = d3.extent(data, function (d) {
         return d.total
@@ -48,34 +52,52 @@ function dataloaded(err, data, map) {
         .range(["#ffc5c0", "#ab0405"])
         .domain(enrolledPerCapitaExtent);
 
+    var force = d3.forceSimulation(data)
+        .force("charge", d3.forceManyBody().strength([-50]))
+        .force("x", d3.forceX())
+        .force("y", d3.forceY())
+        .on("tick", ticked);
+
+    function ticked(e) {
+        circle.attr("cx", function (d) {
+                return d.x;
+            })
+            .attr("cy", function (d) {
+                return d.y;
+            });
+    }
 
     // Bind the data to the SVG and create one path per GeoJSON feature
-    plot1.selectAll(".state")
-        .data(topojson.feature(map, map.objects.states).features) //geometry for the states
+    var node = plot2.selectAll(".state")
+        .data(data)
         .enter()
-        .append("path")
-        .attr("class", "state")
-        .attr("d", path)
+        .append("g")
+
+    var circle = node.append("circle")
         .style("stroke", "#fff")
         .style("stroke-width", "1")
-        .style("fill", function (d) {
+        .style("fill", "#F7B4B1")
+        .style("r", function (d) {
             var mapID = +d.id;
-            var color = "#f7f7f7"; //default color for those without information
+            var r = 0; //default color for those without information
 
             var statePopulation = (populationPerState.get(mapID)).estimate2017;
 
             data.forEach(function (e) {
                 if (mapID === e.id) {
-                    color = scaleColor(e.total / statePopulation)
+                    r = (e.total / statePopulation) * 1000
                 }
             });
 
-            return color
+            return r
         })
+        .attr('transform', 'translate(' + [width / 2, height / 2] + ')')
 }
 
 function parseData(d) {
+    console.log("parseData is running");
     var id = d.Id.split("US")[1];
+    console.log(id);
 
     return {
         id: +id,
