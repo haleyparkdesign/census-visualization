@@ -31,6 +31,7 @@ function dataloaded(err, data, map) {
     console.log(data);
     console.log(map);
     console.log(populationPerState);
+    var nodePadding = 2.5;
 
     // get max and min values of data
     var enrolledExtent = d3.extent(data, function (d) {
@@ -52,34 +53,16 @@ function dataloaded(err, data, map) {
         .range(["#ffc5c0", "#ab0405"])
         .domain(enrolledPerCapitaExtent);
 
-    var force = d3.forceSimulation(data)
-        .force("charge", d3.forceManyBody().strength([-50]))
-        .force("x", d3.forceX())
-        .force("y", d3.forceY())
-        .on("tick", ticked);
-
-    function ticked(e) {
-        circle.attr("cx", function (d) {
-                return d.x;
-            })
-            .attr("cy", function (d) {
-                return d.y;
-            });
-    }
-
     // Bind the data to the SVG and create one path per GeoJSON feature
     var node = plot2.selectAll(".state")
         .data(data)
         .enter()
-        .append("g")
+        .append("g");
 
     var circle = node.append("circle")
-        .style("stroke", "#fff")
-        .style("stroke-width", "1")
-        .style("fill", "#F7B4B1")
         .style("r", function (d) {
             var mapID = +d.id;
-            var r = 0; //default color for those without information
+            var r = 0; //default radius for those without information
 
             var statePopulation = (populationPerState.get(mapID)).estimate2017;
 
@@ -89,19 +72,43 @@ function dataloaded(err, data, map) {
                 }
             });
 
-            return r
+            return r;
         })
-        .attr('transform', 'translate(' + [width / 2, height / 2] + ')')
+    //        .attr('transform', 'translate(' + [width / 2, height / 2] + ')')
+
+    node.append("text")
+        .attr("text-anchor", "middle")
+        .text(function (d) {console.log(d);
+            return d.state
+        });
+
+    var force = d3.forceSimulation(data)
+        .force("charge", d3.forceManyBody().strength(-100))
+        .force("x", d3.forceX())
+        .force("y", d3.forceY())
+        .force('collision', d3.forceCollide().radius(function (d) {
+            return d.radius
+        }))
+        .on("tick", ticked);
+
+    function ticked(e) {
+        node.attr("transform", function (d) {
+            return "translate(" + [d.x + (width / 2), d.y + ((height) / 2)] + ")";
+        });
+        //        circle.attr("cx", function (d) {
+        //                return d.x;
+        //            })
+        //            .attr("cy", function (d) {
+        //                return d.y;
+        //            });
+    }
 }
 
 function parseData(d) {
-    console.log("parseData is running");
     var id = d.Id.split("US")[1];
-    console.log(id);
-
     return {
         id: +id,
-        state: +d.Geography,
+        state: d.Geography,
         total: +d["Total; Estimate; Population 25 years and over - Less than 9th grade"]
     }
 }
