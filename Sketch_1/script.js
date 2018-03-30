@@ -28,6 +28,11 @@ var queue = d3.queue()
     .await(dataloaded);
 
 function dataloaded(err, data, map) {
+    console.log(data);
+    console.log(map);
+    console.log(populationPerState);
+
+
     // get max and min values of data
     var enrolledExtent = d3.extent(data, function (d) {
         return d.total
@@ -48,39 +53,89 @@ function dataloaded(err, data, map) {
         .range(["#ffc5c0", "#ab0405"])
         .domain(enrolledPerCapitaExtent);
 
-
     // Bind the data to the SVG and create one path per GeoJSON feature
-    plot1.selectAll(".state")
-        .data(topojson.feature(map, map.objects.states).features) //geometry for the states
+    var node = plot1.selectAll(".state")
+        .data(data)
         .enter()
-        .append("path")
-        .attr("class", "state")
-        .attr("d", path)
-        .style("stroke", "#fff")
-        .style("stroke-width", "1")
-        .style("fill", function (d) {
+        .append("g")
+        .on("mouseover", function (d) {
+            //            var thisTooltip = d3.select(this.childNodes[2])
+            tooltip.html(d.state + "<br/>" + d.total + "%");
+            return tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", function () {
+            return tooltip
+                .attr("x", event.clientX - 220 + "px")
+                .attr("y", event.clientY - 70 + "px");
+        })
+        .on("mouseout", function () {
+            return tooltip.style("visibility", "hidden");
+        });
+
+
+    var circle = node.append("circle")
+        .style("r", function (d) {
             var mapID = +d.id;
-            var color = "#f7f7f7"; //default color for those without information
+            var r = 0; //default radius for those without information
 
             var statePopulation = (populationPerState.get(mapID)).estimate2017;
 
             data.forEach(function (e) {
                 if (mapID === e.id) {
-                    color = scaleColor(e.total / statePopulation)
+                    r = (e.total) * 3
                 }
             });
 
-            return color
+            return r;
         })
+
+    node.append("text")
+        .attr("text-anchor", "middle")
+        .text(function (d) {
+            console.log(d);
+            for (i = 0; i < us_states.length; i++) {
+                if (us_states[i].name == d.state.toUpperCase()) {
+                    return us_states[i].abbreviation;
+                }
+            }
+        });
+
+    var tooltip = d3.select('svg').append("foreignObject")
+        .attr("class", "tooltip")
+
+    tooltip
+        .append("div")
+        .text("");
+
+    var force = d3.forceSimulation(data)
+        .force("charge", d3.forceManyBody().strength(-100))
+        .force("x", d3.forceX())
+        .force("y", d3.forceY())
+        .force('collision', d3.forceCollide().radius(function (d) {
+            console.log(d);
+            console.log(d.radius);
+            return d.radius
+        }))
+        .on("tick", ticked);
+
+    function ticked(e) {
+        node.attr("transform", function (d) {
+            return "translate(" + [d.x + (width / 2), d.y + ((height) / 2)] + ")";
+        });
+    }
 }
 
 function parseData(d) {
     var id = d.Id.split("US")[1];
+    var total = d["Percent; Estimate; Population 18 to 24 years - Less than high school graduate"]
+    console.log(total);
+    var radius = total * 3
 
     return {
         id: +id,
         state: d.Geography,
-        total: +d["Total; Estimate; Population 25 years and over - Less than 9th grade"]
+        total: +total,
+        radius: +radius
     }
 }
 
