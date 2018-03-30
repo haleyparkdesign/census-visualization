@@ -12,3 +12,15 @@ h2 {
 #plot2 {
     height: 600px;
 }
+
+#plot2 circle {
+    fill: #F7B4B1;
+    stroke: #fff;
+    stroke-width: 1;
+}
+
+#plot2 text {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 0.8em;
+}
