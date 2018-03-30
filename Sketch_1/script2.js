@@ -68,7 +68,7 @@ function dataloaded(err, data, map) {
 
             data.forEach(function (e) {
                 if (mapID === e.id) {
-                    r = (e.total / statePopulation) * 1000
+                    r = (e.total) * 3
                 }
             });
 
@@ -91,6 +91,8 @@ function dataloaded(err, data, map) {
         .force("x", d3.forceX())
         .force("y", d3.forceY())
         .force('collision', d3.forceCollide().radius(function (d) {
+            console.log(d);
+            console.log(d.radius);
             return d.radius
         }))
         .on("tick", ticked);
@@ -104,10 +106,15 @@ function dataloaded(err, data, map) {
 
 function parseData(d) {
     var id = d.Id.split("US")[1];
+    var total = d["Percent; Estimate; Population 18 to 24 years - Bachelor's degree or higher"]
+    console.log(total);
+    var radius = total * 3
+
     return {
         id: +id,
         state: d.Geography,
-        total: +d["Total; Estimate; Population 25 years and over - Less than 9th grade"]
+        total: +total,
+        radius: +radius
     }
 }
 
