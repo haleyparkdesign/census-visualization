@@ -74,12 +74,16 @@ function dataloaded(err, data, map) {
 
             return r;
         })
-    //        .attr('transform', 'translate(' + [width / 2, height / 2] + ')')
 
     node.append("text")
         .attr("text-anchor", "middle")
-        .text(function (d) {console.log(d);
-            return d.state
+        .text(function (d) {
+            console.log(d);
+            for (i = 0; i < us_states.length; i++) {
+                if (us_states[i].name == d.state.toUpperCase()) {
+                    return us_states[i].abbreviation;
+                }
+            }
         });
 
     var force = d3.forceSimulation(data)
@@ -95,12 +99,6 @@ function dataloaded(err, data, map) {
         node.attr("transform", function (d) {
             return "translate(" + [d.x + (width / 2), d.y + ((height) / 2)] + ")";
         });
-        //        circle.attr("cx", function (d) {
-        //                return d.x;
-        //            })
-        //            .attr("cy", function (d) {
-        //                return d.y;
-        //            });
     }
 }
 

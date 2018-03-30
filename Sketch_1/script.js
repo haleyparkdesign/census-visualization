@@ -79,7 +79,7 @@ function parseData(d) {
 
     return {
         id: +id,
-        state: +d.Geography,
+        state: d.Geography,
         total: +d["Total; Estimate; Population 25 years and over - Less than 9th grade"]
     }
 }
