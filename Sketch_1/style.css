@@ -1,26 +1,61 @@
 body {
-    padding: 50px;
-    font-family: "HelveticaNeueLT Std", "Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
+    font-family: 'Open Sans', sans-serif;
+    color: #17307a;
+    background-color: #f5f3f4;
 }
 
+.header {
+    min-height: 8em;
+    padding-top: 5em;
+}
+
+.header h1 {
+    font-family: 'Vidaloka', serif;
+    font-weight: 100;
+    text-align: center;
+    font-size: 2.6em;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
 h2 {
-    margin-bottom: 40px;
     margin-top: 50px;
+    font-weight: 100;
+    font-size: 1.2em;
 }
 
 #plot1,
 #plot2 {
-    height: 600px;
+    height: 800px;
 }
 
-#plot2 circle {
+#plot1 circle {
     fill: #F7B4B1;
     stroke: #fff;
     stroke-width: 1;
 }
 
-#plot2 text {
+#plot1 text, #plot1 .tooltip {
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
     font-size: 0.8em;
+}
+
+#plot1 .tooltip {
+    position: absolute;
+    visibility: hidden;
+    color: #fff;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 6px;
+    text-align: center;
+    width: 150px;
+    height: 100px;
+    z-index: 9999;
+    padding: 1em;
+    line-height: 1.5em;
 }

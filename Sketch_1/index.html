@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Project 3 - Sketch 1</title>
+    <link href="normalize.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300, 400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono:300,400|Vidaloka" rel="stylesheet">
 </head>
 
 <body>
+    <div class="header">
+        <h1>The most educated state in the U.S.</h1>
+    </div>
     <div class="container">
-        <div>
-            <h1>The most educated state in the United States</h1>
-            <h2>Population 25 years and over - Less than 9th grade</h2>
-            <div id='plot1'></div><br>
-            <h3>Make this map into bubbles: A work in process</h3>
-            <div id='plot2'></div>
-        </div>
+        <h2>Percent; Estimate; Population 18 to 24 years - Less than high school graduate</h2>
+        <div id='plot1'></div>
+        <h2>Population 18 to 24 years - Bachelor's degree or higher</h2>
+        <div id='plot1'></div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
-    <script src="script.js"></script>
     <script src="data/us_states.json"></script>
-    <script src="script2.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
