@@ -66,7 +66,9 @@ function dataloaded(err, data, map) {
         })
 
         .on("mousemove", function () {
-            return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
+            return tooltip
+                .style("top", (d3.event.pageY - 10) + "px")
+                .style("left", (d3.event.pageX + 10) + "px");
         })
         .on("mouseout", function () {
             return tooltip.style("visibility", "hidden");
