@@ -33,12 +33,6 @@ h2 {
     height: 800px;
 }
 
-#plot1 circle {
-    fill: #F7B4B1;
-    stroke: #fff;
-    stroke-width: 1;
-}
-
 #plot1 text, #plot1 .tooltip {
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
@@ -53,9 +47,12 @@ h2 {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 6px;
     text-align: center;
-    width: 150px;
-    height: 100px;
     z-index: 9999;
     padding: 1em;
     line-height: 1.5em;
 }
+
+#plot1 .tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+

@@ -32,7 +32,6 @@ function dataloaded(err, data, map) {
     console.log(map);
     console.log(populationPerState);
 
-
     // get max and min values of data
     var enrolledExtent = d3.extent(data, function (d) {
         return d.total
@@ -59,22 +58,24 @@ function dataloaded(err, data, map) {
         .enter()
         .append("g")
         .on("mouseover", function (d) {
-            //            var thisTooltip = d3.select(this.childNodes[2])
-            tooltip.html(d.state + "<br/>" + d.total + "%");
-            return tooltip.style("visibility", "visible");
-        })
-        .on("mousemove", function () {
+            tooltip
+                .html(d.state + "<br/>" + d.total + "%");
+
             return tooltip
-                .attr("x", d3.event.clientX - 220 + "px")
-                .attr("y", d3.event.clientY - 70 + "px");
+                .style("visibility", "visible")
+        })
+
+        .on("mousemove", function () {
+            return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
         })
         .on("mouseout", function () {
             return tooltip.style("visibility", "hidden");
-        });
+        })
 
+        .style("cursor", "pointer");
 
     var circle = node.append("circle")
-        .style("r", function (d) {
+        .attr("r", function (d) {
             var mapID = +d.id;
             var r = 0; //default radius for those without information
 
@@ -88,6 +89,10 @@ function dataloaded(err, data, map) {
 
             return r;
         })
+        .attr("fill", " #F7B4B1")
+        .attr("stroke", "#fff")
+        .attr("stroke-width", 1)
+
 
     node.append("text")
         .attr("text-anchor", "middle")
@@ -100,12 +105,9 @@ function dataloaded(err, data, map) {
             }
         });
 
-    var tooltip = d3.select('svg').append("foreignObject")
-        .attr("class", "tooltip")
-
-    tooltip
+    var tooltip = d3.select('#plot1')
         .append("div")
-        .text("");
+        .attr("class", "tooltip")
 
     var force = d3.forceSimulation(data)
         .force("charge", d3.forceManyBody().strength(-100))
