@@ -23,34 +23,12 @@ var populationPerState = d3.map();
 // queue data files, parse them and use them
 var queue = d3.queue()
     .defer(d3.csv, "data/data.csv", parseData)
-    .defer(d3.json, "data/us_map.json")
-    .defer(d3.csv, "data/population.csv", parsePopulation)
     .await(dataloaded);
 
 function dataloaded(err, data, map) {
     console.log(data);
     console.log(map);
     console.log(populationPerState);
-
-    // get max and min values of data
-    var enrolledExtent = d3.extent(data, function (d) {
-        return d.total
-    });
-
-    var extentData = d3.extent(data, function (d) {
-        return d.total
-    });
-
-    var enrolledPerCapitaExtent = d3.extent(data, function (d) {
-        var id = +d.id.toString();
-        var statePopulation = (populationPerState.get(id)).estimate2017;
-        return d.total / statePopulation
-    });
-
-    // scale Color for the map
-    var scaleColor = d3.scaleLinear()
-        .range(["#ffc5c0", "#ab0405"])
-        .domain(enrolledPerCapitaExtent);
 
     // Bind the data to the SVG and create one path per GeoJSON feature
     var node = plot1.selectAll(".state")
@@ -80,8 +58,6 @@ function dataloaded(err, data, map) {
         .attr("r", function (d) {
             var mapID = +d.id;
             var r = 0; //default radius for those without information
-
-            var statePopulation = (populationPerState.get(mapID)).estimate2017;
 
             data.forEach(function (e) {
                 if (mapID === e.id) {
@@ -141,19 +117,4 @@ function parseData(d) {
         total: +total,
         radius: +radius
     }
-}
-
-function parsePopulation(d) {
-    var id;
-    if (d.id !== "") {
-        id = +d.id.split("US")[1];
-    } else {
-        id = d["Geographic Area"];
-    }
-
-    populationPerState.set(id, {
-        state: d["Geographic Area"],
-        april2010: +d["April 1, 2010, Census"],
-        estimate2017: +d["Estimate 2017"],
-    });
 }
