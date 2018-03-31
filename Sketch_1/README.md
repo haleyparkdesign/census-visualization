@@ -2,5 +2,5 @@ Data source: https://factfinder.census.gov/faces/tableservices/jsf/pages/product
 
 Based on this sketch: ![sketch 1](../hand_sketches/01.JPG "Sketch 1")
 
-Temporary url: http://hyojeongpark.github.io/4.032_Project_3/Sketch_1
+Temporary url: http://design-osaur.net/Sketch_1/
 (planning to get a url once we have a team name)
