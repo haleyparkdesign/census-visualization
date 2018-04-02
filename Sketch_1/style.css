@@ -21,25 +21,24 @@ body {
     margin: 0 auto;
 }
 
-
 h2 {
     margin-top: 50px;
     font-weight: 100;
     font-size: 1.2em;
 }
 
-#plot1,
-#plot2 {
-    height: 800px;
+.plot {
+    height: 600px;
 }
 
-#plot1 text, #plot1 .tooltip {
+.plot text,
+.plot .tooltip {
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
     font-size: 0.8em;
 }
 
-#plot1 .tooltip {
+.plot .tooltip {
     position: absolute;
     visibility: hidden;
     color: #fff;
@@ -52,7 +51,6 @@ h2 {
     line-height: 1.5em;
 }
 
-#plot1 .tooltip-inner {
+.plot .tooltip-inner {
     background-color: rgba(0, 0, 0, 0.7);
 }
-
