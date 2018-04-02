@@ -7,14 +7,14 @@ var margin = {
 };
 
 var statesByGeo = [
-    " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "ME",
-    " ", " ", " ", " ", " ", " ", "WI", " ", " ", " ", "VT", "NH",
-    "", "WA", "ID", "MT", "ND", "MN", "IL", "MI", "", "NY", "MA", "",
-    "", "OR", "NV", "WY", "SD", "IA", "IN", "OH", "PA", "NJ", "CT", "RI",
-    " ", "CA", "UT", "CO", "NE", "MO", "KY", "WV", "VA", "MD", "DE", "",
-    "", "", "AZ", "NM", "KS", "AR", "TN", "NC", "SC", "DC", "", "",
-    "", "", "", "", "OK", "LA", "MS", "AL", "GA", "", "", "",
-    "HI", "AK", "", "", "TX", "", "", "", "", "FL", "", "PR"];
+    "AK", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "ME",
+    "  ", "  ", "  ", "  ", "  ", "  ", "WI", "  ", "  ", "  ", "VT", "NH",
+    "  ", "WA", "ID", "MT", "ND", "MN", "IL", "MI", "  ", "NY", "MA", "  ",
+    "  ", "OR", "NV", "WY", "SD", "IA", "IN", "OH", "PA", "NJ", "CT", "RI",
+    "  ", "CA", "UT", "CO", "NE", "MO", "KY", "WV", "VA", "MD", "DE", "  ",
+    "  ", "  ", "AZ", "NM", "KS", "AR", "TN", "NC", "SC", "DC", "  ", "  ",
+    "  ", "  ", "  ", "  ", "OK", "LA", "MS", "AL", "GA", "  ", "  ", "  ",
+    "HI", "  ", "  ", "  ", "TX", "  ", "  ", "  ", "  ", "FL", "  ", "PR"];
 
 var width = d3.select('#plot1').node().clientWidth - margin.r - margin.l,
     height = d3.select('#plot1').node().clientHeight - margin.t - margin.b;
@@ -24,7 +24,6 @@ var plot1 = d3.select('#plot1')
 var plot1_svg = plot1.append('svg')
     .attr('width', width + margin.r + margin.l)
     .attr('height', height + margin.t + margin.b);
-
 
 // queue data files, parse them and use them
 var queue = d3.queue()
@@ -38,13 +37,10 @@ function dataloaded(err, data) {
         .enter()
         .append("g")
         .on("mouseover", function (d) {
-            tooltip
-                .html(d.state + "<br/>" + d.total + "%");
+            tooltip.html(d.state + "<br/>" + d.total + "%");
 
-            return tooltip
-                .style("visibility", "visible")
+            return tooltip.style("visibility", "visible")
         })
-
         .on("mousemove", function () {
             return tooltip
                 .style("top", (d3.event.pageY - 10) + "px")
@@ -53,7 +49,6 @@ function dataloaded(err, data) {
         .on("mouseout", function () {
             return tooltip.style("visibility", "hidden");
         })
-
         .style("cursor", "pointer");
 
     var circle = node.append("circle")
@@ -76,22 +71,20 @@ function dataloaded(err, data) {
     node.append("text")
         .attr("text-anchor", "middle")
         .text(function (d) {
-            return d.stateAbbr
+            return d.stateAbbr;
         })
         .style("transform", "translate(0px, 4px)");
 
-    var tooltip = plot1
-        .append("div")
+    var tooltip = plot1.append("div")
         .attr("class", "tooltip")
 
     var force = d3.forceSimulation(data)
-        .on("tick", ticked);
-
-    function ticked(e) {
-        node.attr("transform", function (d) {
-            return "translate(" + [placeState(d.stateAbbr)[0] + (width / 7), placeState(d.stateAbbr)[1] + ((height) / 9)] + ")";
+        .on("tick", function (e) {
+            node.attr("transform", function (d) {
+                return "translate(" +
+                    [placeState(d.stateAbbr)[0] + (width / 7), placeState(d.stateAbbr)[1] + (height / 7)] + ")";
+            });
         });
-    };
 }
 
 function parseData(d) {
@@ -116,6 +109,7 @@ function parseData(d) {
 }
 
 function placeState(state) {
+    console.log(state);
     var x = 0;
     var y = 0;
     var factor = 60; //distribution factor
@@ -123,11 +117,12 @@ function placeState(state) {
     for (i = 0; i < statesByGeo.length; i++) {
         if (statesByGeo[i] == state) {
             x = i % 12;
-            y = Math.round(i / 12) - 1;
+            y = Math.floor(i / 12);
         }
     }
 
     x = x * factor;
     y = y * factor;
+    console.log([x, y]);
     return [x, y]
 }
