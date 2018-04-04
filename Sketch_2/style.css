@@ -1,0 +1,51 @@
+body {
+/*    padding: 50px;*/
+}
+
+h2{
+    text-align: center;
+    font-size: 20px;
+}
+
+.Age{
+    display: block; /* makes it have a width */
+     content: ""; /* clears default height */
+     margin-bottom: 80px; /* change this to whatever height you want it */
+}
+
+
+br {
+     display: block; /* makes it have a width */
+     content: ""; /* clears default height */
+     margin-top: 160px; /* change this to whatever height you want it */
+}
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+.overlay {
+    position: relative;
+    display: inline;
+    width: 200px;
+    height: 200px;
+}
+
+.pie {
+    position: absolute;
+    width: 168px;
+    height: 168px;
+    z-index: -1;
+}
+
+.dots {
+    position: absolute;
+    width: 168px;
+    height: 168px;
+    z-index: 1;
+}
