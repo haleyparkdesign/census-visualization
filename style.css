@@ -145,3 +145,26 @@ h2 {
 .plot .tooltip-inner {
     background-color: rgba(0, 0, 0, 0.7);
 }
+
+/*plot 3 styles*/
+#plot3{
+    width: 800px;
+    height: 500px;
+    background-color: beige;
+}
+
+.label{
+    font-size: 12px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.line{
+    stroke-width: 1px;
+    stroke: dimgrey;
+    shape-rendering: geometricPrecision;
+    opacity: .5;
+}
+
+.legend{
+    font-family: 'Source Sans Pro', sans-serif;
+}
