@@ -42,7 +42,7 @@ function starPlot(datum){
             //var theta = 2*Math.PI/incomeGroups;
             var r = -radius*n/levels;
             rings.append("line")
-                //.style("stroke", "grey")
+                .attr("class", "ring")
                 .attr("transform", "rotate("+180/Math.PI*theta*i+")")
                 .attr("x1", 0)
                 .attr("y1", r)
