@@ -9,7 +9,7 @@ var plot = d3.select("#plot")
     .attr('height', height + margin.top + margin.bottom);
 
 var queue = d3.queue()
-    .defer(d3.csv, "income_education_condensed.csv", parseData)
+    .defer(d3.csv, "Sketch_3/income_education_condensed.csv", parseData)
     .await(dataloaded);
 
 var color = ["#3961a0", "#a03887", "#7b38a0", "#38a057", "#98dd6a", "#dddd69", "#d89950", "#d85d50", "#d3851f", "#1ed278"]
