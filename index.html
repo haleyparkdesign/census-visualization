@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3: Census Data</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:300,400,600" rel="stylesheet">
+    <link href="normalize.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="head">
+        <div class="class"><a href="https://irenedelatorre.github.io/MIT-Design-Studio-Information-and-Visualization/" target="_blank">MIT 4.032 Design Studio: Information and Visualization</a></div>
+        <div class="names">Hannah Lienhard<br>Lucia Liu<br>Noah Mcdaniel<br>Haley Park</div>
+    </div>
+
+    <div class="container">
+        <h1>Education in the U.S.<br>: A Breakdown</h1>
+        <div class="content">
+            <p>This project visualizes census data on education. Some findings from the entire three sketches will be explained here after we're done with all the visualizations needed. Interactivity is to be added next week. </p><br>
+            <h2>Which State attained the Most Degree?</h2>
+            <p>The size of the blob represents the percentage of people who attained the level of education. Move the sliders around!</p><br>
+
+            <div class="sketch1-container">
+                <h3>Population 18 to 24 years</h3>
+                <h4>Less than high school graduate</h4> <br>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="8" value="10" class="slider" id="myRange">
+                </div>
+                <div id='plot1' class="plot"></div>
+            </div>
+            <br><br>
+            <h2>Educational Attainment Broken Down Into Age Groups</h2>
+            <p>Some findings and clarifications from this sketch is to be added here. </p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="Sketch_1/data/us_states.json"></script>
+    <script src="Sketch_1/script.js"></script>
+</body>
+</html>
+

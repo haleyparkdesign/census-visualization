@@ -1,11 +1,3 @@
-//plot
-var margin = {
-    t: 5,
-    r: 25,
-    b: 20,
-    l: 25
-};
-
 var statesByGeo = [
     "AK", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "ME",
     "  ", "  ", "  ", "  ", "  ", "  ", "WI", "  ", "  ", "  ", "VT", "NH",
@@ -16,18 +8,18 @@ var statesByGeo = [
     "  ", "  ", "  ", "  ", "OK", "LA", "MS", "AL", "GA", "  ", "  ", "  ",
     "HI", "  ", "  ", "  ", "TX", "  ", "  ", "  ", "  ", "FL", "  ", "PR"];
 
-var width = d3.select('#plot1').node().clientWidth - margin.r - margin.l,
-    height = d3.select('#plot1').node().clientHeight - margin.t - margin.b;
+var width = d3.select('#plot1').node().clientWidth,
+    height = d3.select('#plot1').node().clientHeight;
 
 var plot1 = d3.select('#plot1')
 
 var plot1_svg = plot1.append('svg')
-    .attr('width', width + margin.r + margin.l)
-    .attr('height', height + margin.t + margin.b);
+    .attr('width', width)
+    .attr('height', height);
 
 // queue data files, parse them and use them
 var queue = d3.queue()
-    .defer(d3.csv, "data/data.csv", parseData)
+    .defer(d3.csv, "Sketch_1/data/data.csv", parseData)
     .await(dataloaded);
 
 function dataloaded(err, data) {
@@ -67,6 +59,7 @@ function dataloaded(err, data) {
         .attr("fill", " #F7B4B1")
         .attr("stroke", "#fff")
         .attr("stroke-width", 1)
+        .attr("opacity", 0.8)
 
     node.append("text")
         .attr("text-anchor", "middle")
@@ -81,8 +74,7 @@ function dataloaded(err, data) {
     var force = d3.forceSimulation(data)
         .on("tick", function (e) {
             node.attr("transform", function (d) {
-                return "translate(" +
-                    [placeState(d.stateAbbr)[0] + (width / 7), placeState(d.stateAbbr)[1] + (height / 7)] + ")";
+                return "translate(" + [placeState(d.stateAbbr)[0] + (width / 7), placeState(d.stateAbbr)[1] + (height / 7)] + ")";
             });
         });
 }
@@ -109,7 +101,6 @@ function parseData(d) {
 }
 
 function placeState(state) {
-    console.log(state);
     var x = 0;
     var y = 0;
     var factor = 60; //distribution factor
@@ -123,6 +114,5 @@ function placeState(state) {
 
     x = x * factor;
     y = y * factor;
-    console.log([x, y]);
     return [x, y]
 }

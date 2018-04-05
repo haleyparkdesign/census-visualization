@@ -1,34 +1,77 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: #17307a;
-    background-color: #f0f0f0;
+html {
+    background-color: #0C0C0C;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 2.8em;
+    font-weight: 300;
 }
 
-.header {
-    min-height: 8em;
-    padding-top: 5em;
+a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-.header h1 {
-    font-family: 'Vidaloka', serif;
-    font-weight: 100;
-    text-align: center;
-    font-size: 2.6em;
+.head {
+    width: 100%;
+    display: flex;
+}
+
+.class, .names {
+    font-weight: 300;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    width: 50%;
+}
+
+.names {
+    text-align: right;
+    float: right;
 }
 
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
+    display: block;
+    margin: 5em auto 0em;
+    width: 940px;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5em;
+    line-height: 1.4em;
 }
 
 h2 {
-    margin-top: 50px;
     font-weight: 300;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.content {
+    margin-left: 180px;
+}
+
+.content p {
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+.sketch1-container h3 {
+    text-align: center;
+    font-size: 1.35em;
+}
+
+.sketch1-container h4 {
     font-size: 1.2em;
 }
 
+#plot1 {
+    margin-left: -65px;
+}
+
 @media (max-width: 800px) {
-    .container {
+    .sketch1-container {
         margin: 1em;
     }
 
@@ -43,18 +86,12 @@ h2 {
 
 .slider {
     -webkit-appearance: none;
-    /* Override default CSS styles */
     appearance: none;
     width: 100%;
-    /* Full-width */
-    height: 12px;
-    /* Specified height */
-    background: #e2e2e2;
-    /* Grey background */
+    height: 8px;
+    background: #6d6d6d;
     outline: none;
-    -webkit-transition: .2s;
-    /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+    border-radius: 8px;
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
@@ -65,7 +102,7 @@ h2 {
     appearance: none;
     width: 20px;
     height: 20px;
-    background: #17307a;
+    background: #fff;
     cursor: pointer;
     border-radius: 100%;
 }
