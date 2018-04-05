@@ -1,5 +1,5 @@
 var margin = {top: 10, bottom: 10, left: 10, right: 10};
-var width =  780;//d3.select("#plot3").node().clientWidth - margin.left - margin.right;
+var width =  d3.select("#plot3").node().clientWidth - margin.left - margin.right;
 var height =  d3.select("#plot3").node().clientHeight - margin.top - margin.bottom;
 var radius = height*2/5;
 
