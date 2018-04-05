@@ -1,0 +1,22 @@
+#plot{
+    width: 800px;
+    height: 500px;
+    background-color: beige;
+}
+
+.label{
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.line{
+    stroke-width: 1px;
+    stroke: dimgrey;
+    shape-rendering: geometricPrecision;
+    /*fill: dimgrey;*/
+    opacity: .5;
+}
+
+.legend{
+   font-family: Arial; 
+}
