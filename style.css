@@ -150,12 +150,12 @@ h2 {
 #plot3{
     width: 800px;
     height: 500px;
-    background-color: black;
 }
 
 .label{
     font-size: 12px;
     font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
 }
 
 .line{
@@ -165,6 +165,12 @@ h2 {
     opacity: .5;
 }
 
+.radial{
+    stroke-width: 2px;
+    stroke: darkgrey;
+}
+
 .legend{
     font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
 }
