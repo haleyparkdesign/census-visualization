@@ -122,7 +122,8 @@ function plotData(datum){
             .attr("r", 2)
             .attr("cx", 0)
             .attr("cy", -y[i])
-            .attr("fill", "#efefef"); 
+            .attr("fill", "#efefef")
+            .attr("stroke", "black"); 
     }
 }
 
