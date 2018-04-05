@@ -65,7 +65,7 @@ var path4 = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(0);
 
-d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", function(d) {
+d3.csv("Sketch_2/data/Education/Educational_Attainment_of_the_Population_2017.csv", function(d) {
   d = d.filter(function(row) { return row.Age == "..18 to 24 years" });
     
     var arc0 = g.selectAll(".arc")
@@ -121,19 +121,19 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
 });
 
 function dots(){
-    return "dot_template.png";
+    return "Sketch_2/dot_template.png";
 }
 function dots1(){
-    return "dot_template.png";
+    return "Sketch_2/dot_template.png";
 }
 function dots2(){
-    return "dot_template.png";
+    return "Sketch_2/dot_template.png";
 }
 function dots3(){
-    return "dot_template.png";
+    return "Sketch_2/dot_template.png";
 }
 function dots4(){
-    return "dot_template.png";
+    return "Sketch_2/dot_template.png";
 }
 document.getElementById("dots4").src = dots4();
 document.getElementById("dots3").src = dots3();
