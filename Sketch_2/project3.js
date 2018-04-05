@@ -121,19 +121,19 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
 });
 
 function dots(){
-    return "dot template.png";
+    return "dot_template.png";
 }
 function dots1(){
-    return "dot template.png";
+    return "dot_template.png";
 }
 function dots2(){
-    return "dot template.png";
+    return "dot_template.png";
 }
 function dots3(){
-    return "dot template.png";
+    return "dot_template.png";
 }
 function dots4(){
-    return "dot template.png";
+    return "dot_template.png";
 }
 document.getElementById("dots4").src = dots4();
 document.getElementById("dots3").src = dots3();
