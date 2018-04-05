@@ -160,9 +160,14 @@ h2 {
 
 .line{
     stroke-width: 1px;
-    stroke: dimgrey;
+    stroke: #efefef;
     shape-rendering: geometricPrecision;
     opacity: .5;
+}
+
+.ring{
+    stroke-width: 1px;
+    stroke: dimgrey;
 }
 
 .radial{
