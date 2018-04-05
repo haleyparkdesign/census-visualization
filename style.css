@@ -1,6 +1,6 @@
 html {
-    background-color: #0C0C0C;
-    color: #fff;
+    background-color: #efefef;
+    color: #141414;
     font-family: 'Source Sans Pro', sans-serif;
     margin: 2.8em;
     font-weight: 300;
@@ -8,7 +8,7 @@ html {
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #141414;
     cursor: pointer;
     font-size: 14px;
 }
@@ -102,7 +102,7 @@ h2 {
     appearance: none;
     width: 20px;
     height: 20px;
-    background: #fff;
+    background: #141414;
     cursor: pointer;
     border-radius: 100%;
 }
@@ -132,7 +132,7 @@ h2 {
 .plot .tooltip {
     position: absolute;
     visibility: hidden;
-    color: #fff;
+    color: #141414;
     padding: 8px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 6px;
@@ -155,27 +155,27 @@ h2 {
 .label{
     font-size: 12px;
     font-family: 'Source Sans Pro', sans-serif;
-    color: #fff;
+    color: #141414;
 }
 
 .line{
     stroke-width: 1px;
-    stroke: #efefef;
+    stroke: #a8a8a8;
     shape-rendering: geometricPrecision;
     opacity: .5;
 }
 
 .ring{
     stroke-width: 1px;
-    stroke: dimgrey;
+    stroke: #686868;
 }
 
 .radial{
     stroke-width: 2px;
-    stroke: darkgrey;
+    stroke: #141414;
 }
 
 .legend{
     font-family: 'Source Sans Pro', sans-serif;
-    color: #fff;
+    color: #141414;
 }
