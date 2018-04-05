@@ -42,7 +42,7 @@ function starPlot(datum){
             //var theta = 2*Math.PI/incomeGroups;
             var r = -radius*n/levels;
             rings.append("line")
-                .style("stroke", "grey")
+                //.style("stroke", "grey")
                 .attr("transform", "rotate("+180/Math.PI*theta*i+")")
                 .attr("x1", 0)
                 .attr("y1", r)
@@ -65,7 +65,7 @@ function starPlot(datum){
         .attr("transform", "translate(" + (width*1/3+margin.left) + "," +  (height/2+margin.top) + ")");
     for(i=0; i<incomeGroups; i++){
         radials.append("line")
-            .style("stroke", "black")
+            .attr("class", "radial")
             .attr("transform", "rotate("+180/Math.PI*theta*i+")")
             .attr("x1", 0)
             .attr("y1", 0)
@@ -122,7 +122,7 @@ function plotData(datum){
             .attr("r", 2)
             .attr("cx", 0)
             .attr("cy", -y[i])
-            .attr("fill", "#444444"); 
+            .attr("fill", "#333333"); 
     }
 }
 
@@ -152,7 +152,7 @@ function legend(datums){
             .attr("width", 20)
             .attr("height", 20)
             .attr("fill", color[datums[i].index])
-            .attr("stroke", "dimgrey");
+            .attr("stroke", "#333333");
     }
 }
 
