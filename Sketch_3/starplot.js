@@ -122,7 +122,7 @@ function plotData(datum){
             .attr("r", 2)
             .attr("cx", 0)
             .attr("cy", -y[i])
-            .attr("fill", "#333333"); 
+            .attr("fill", "#efefef"); 
     }
 }
 
@@ -152,7 +152,7 @@ function legend(datums){
             .attr("width", 20)
             .attr("height", 20)
             .attr("fill", color[datums[i].index])
-            .attr("stroke", "#333333");
+            .attr("stroke", "#efefef");
     }
 }
 
