@@ -1,7 +1,7 @@
 var margin = {top: 10, bottom: 10, left: 10, right: 10};
 var width =  d3.select("#plot3").node().clientWidth - margin.left - margin.right;
 var height =  d3.select("#plot3").node().clientHeight - margin.top - margin.bottom;
-var radius = height*2/5;
+var radius = width*1/3;
 
 var plot = d3.select("#plot3")
     .append('svg')
@@ -56,7 +56,7 @@ function starPlot(datum){
             //.attr("position", "absolute")
             //.attr("z-index", "1")
             .attr("x", 5)
-            .attr("y", -n*radius/levels+5)
+            .attr("y", -n*radius/levels+10)
             //manual, currently based on x scale, make automatic
             .text((n*55/levels).toFixed(0)+"%");
     }
@@ -81,9 +81,9 @@ function starPlot(datum){
                 if(theta*i>0 && theta*i<Math.PI)
                     x+=35;
                 else if(theta*i>Math.PI && theta*i<2*Math.PI)
-                    x-=40;
+                    x-=60;
                 if(theta*i == Math.PI*10/7)
-                    x+=15;
+                    x+=5;
                 return x})
             .attr("y", 0)
             .text(datum.values[i].bracket);
