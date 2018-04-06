@@ -1,7 +1,7 @@
 var margin = {top: 10, bottom: 10, left: 10, right: 10};
 var width =  d3.select("#plot3").node().clientWidth - margin.left - margin.right;
 var height =  d3.select("#plot3").node().clientHeight - margin.top - margin.bottom;
-var radius = width*1/6;
+var radius = width*1/5;
 
 var plot = d3.select("#plot3")
     .append('svg')
@@ -81,9 +81,9 @@ function starPlot(datum){
                 if(theta*i>0 && theta*i<Math.PI)
                     x+=35;
                 else if(theta*i>Math.PI && theta*i<2*Math.PI)
-                    x-=60;
+                    x-=65;
                 if(theta*i == Math.PI*10/7)
-                    x+=5;
+                    x+=10;
                 return x})
             .attr("y", 0)
             .text(datum.values[i].bracket);
@@ -130,7 +130,7 @@ function plotData(datum){
 function legend(datums){
     //title of legend
     var legend = plot.append("g")
-        .attr("transform", "translate(" + (width*2/3+margin.left) + "," +  (margin.top+50) + ")");
+        .attr("transform", "translate(" + (width*3/5+margin.left) + "," +  (margin.top+50) + ")");
     legend.append("g")
         .append("text")
         .attr("class", "legend")
