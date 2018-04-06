@@ -132,7 +132,7 @@ h2 {
 .plot .tooltip {
     position: absolute;
     visibility: hidden;
-    color: #141414;
+    color: #efefef;
     padding: 8px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 6px;
