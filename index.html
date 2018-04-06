@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3: Census Data</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:300,400,600" rel="stylesheet">
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <link href="normalize.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -18,9 +20,7 @@
     <div class="container">
         <h1>Education in the U.S.:<br>A Breakdown of Demographics</h1>
         <div class="content">
-            <p>This project visualizes census data on education. Around the U.S. access to education and quality of education are not uniform. 
-                The attainment of education varies by state of residence, age, and sex, amongst other factors. Education leads to differences in 
-                income as well. The visualizations below explain these phenomena.</p><br>
+            <p>This project visualizes census data on education. Around the U.S. access to education and quality of education are not uniform. The attainment of education varies by state of residence, age, and sex, amongst other factors. Education leads to differences in income as well. The visualizations below explain these phenomena.</p><br>
             <h2>Educational Attainment By State</h2>
             <p>The size of the blob represents the percentage of people who attained the level of education. Move the sliders around!</p><br>
             <div class="sketch1-container">
@@ -32,60 +32,66 @@
                 <div id='plot1' class="plot"></div>
             </div>
             <br><br>
-            
+
             <h2>Educational Attainment Broken Down Into Age Groups</h2>
             <p>The two axes of this diagram are age group and level of highest education. Each dot is colored to indicate the distribution of individuals by sex. </p>
-            <!--<div class="container">
+            <div class="sketch2-container">
                 <div class="row">
                     <p class="col-md-12"> <a href="https://www.pbhfoundation.org/pdfs/about/res/pbh_res/State_of_the_Plate_2015_WEB_Bookmarked.pdf"></a></p>
                 </div>
                 <div class="row">
-                    <div class="col-md-2"><h3 class = Age>Age</h3>
+                    <div class="col-md-2">
+                        <h3 class="Age">Age</h3>
                         <div class="row-lg-1">
                             <h3>18 to 24 years</h3>
-                        </div> 
+                        </div>
                         <br>
                         <div class="row-lg-1">
                             <h3>24 to 32 years</h3>
                         </div>
                         <br>
                     </div>
-                    <div class="col-md-2"><h3>High School</h3>
+                    <div class="col-md-2">
+                        <h3>High School</h3>
                         <div class="overlay">
-                            <img  class= "dots" id = "dots" alt="dots" />
-                            <svg class= "pie" id = "pie" width="168" height="168" ></svg>
+                            <img class="dots" id="dots" alt="dots" />
+                            <svg class="pie" id="pie" width="168" height="168"></svg>
                         </div>
                     </div>
-                    <div class="col-md-2"><h3>Bachelors</h3>
-                            <img  class= "dots" id = "dots1" alt="dots" width="168" height="168" />
-                            <svg class= "pie" id = "pie1" width="168" height="168" ></svg>
+                    <div class="col-md-2">
+                        <h3>Bachelors</h3>
+                        <img class="dots" id="dots1" alt="dots" width="168" height="168" />
+                        <svg class="pie" id="pie1" width="168" height="168"></svg>
                     </div>
-                    <div class="col-md-2"><h3>Masters</h3>
-                            <img  class= "dots" id = "dots2" alt="dots" width="168" height="168" />
-                            <svg class= "pie" id = "pie2" width="168" height="168" ></svg>
+                    <div class="col-md-2">
+                        <h3>Masters</h3>
+                        <img class="dots" id="dots2" alt="dots" width="168" height="168" />
+                        <svg class="pie" id="pie2" width="168" height="168"></svg>
                     </div>
-                    <div class="col-md-2"><h3>Doctorate</h3>
-                            <img  class= "dots" id = "dots3" alt="dots" width="168" height="168" />
-                            <svg class= "pie" id = "pie3" width="168" height="168" ></svg>
+                    <div class="col-md-2">
+                        <h3>Doctorate</h3>
+                        <img class="dots" id="dots3" alt="dots" width="168" height="168" />
+                        <svg class="pie" id="pie3" width="168" height="168"></svg>
                     </div>
-                    <div class="col-md-2"><h3>Professional</h3>
-                            <img  class= "dots" id = "dots4" alt="dots" width="168" height="168" />
-                            <svg class= "pie" id = "pie4" width="168" height="168" ></svg>
-                    </div>                   
+                    <div class="col-md-2">
+                        <h3>Professional</h3>
+                        <img class="dots" id="dots4" alt="dots" width="168" height="168" />
+                        <svg class="pie" id="pie4" width="168" height="168"></svg>
+                    </div>
                 </div>
-            </div>-->
+            </div>
             <br><br>
-            
-            <h2>Annual Income Distribution, By Educational Attainment</h2> 
+
+            <h2>Annual Income Distribution, By Educational Attainment</h2>
             <p>Select different education levels to see the income for each bracket of the group. Distance from the center represents the percent earning at that level.</p>
-                <div id='plot3'></div>
+            <div id='plot3'></div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script src="Sketch_1/data/us_states.json"></script>
     <script src="Sketch_1/script.js"></script>
-    <script src="Sketch_2/dot_plot.js"></script>
+    <script src="dot_plot.js"></script>
     <script src="Sketch_3/starplot.js"></script>
 </body>
 </html>

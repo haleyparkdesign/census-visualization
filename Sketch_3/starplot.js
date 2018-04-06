@@ -13,7 +13,7 @@ var queue = d3.queue()
     .defer(d3.csv, "Sketch_3/income_education_condensed.csv", parseData)
     .await(dataloaded);
 
-var color = ["#3961a0", "#a03887", "#7b38a0", "#38a057", "#98dd6a", "#dddd69", "#d89950", "#d85d50", "#d3851f", "#1ed278"]
+var colors = ["#3961a0", "#a03887", "#7b38a0", "#38a057", "#98dd6a", "#dddd69", "#d89950", "#d85d50", "#d3851f", "#1ed278"]
 
 function dataloaded (error,data){
     if(error) throw error;
@@ -112,7 +112,7 @@ function plotData(datum){
     plot.append("path")
         .attr("transform", "translate(" + (width*1/3+margin.left) + "," +  (height/2+margin.top) + ")")
         .attr("class", "line")
-        .attr("fill", color[datum.index])
+        .attr("fill", colors[datum.index])
         .attr("d", line(datum.values));
     
     //value points on radials
@@ -154,7 +154,7 @@ function legend(datums){
             .attr("y", (i+1)*30-15)
             .attr("width", 20)
             .attr("height", 20)
-            .attr("fill", color[datums[i].index])
+            .attr("fill", colors[datums[i].index])
             .attr("stroke", "#efefef");
     }
 }

@@ -4,50 +4,59 @@
     <meta charset="UTF-8">
     <title>Project 3</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet" />
 </head>
+
 <body>
-<div class="container">
-    <div class="row">
-        <h1 class="col-md-12">Educational Attainment</h1>
-        <p class="col-md-12"> <a href="https://www.pbhfoundation.org/pdfs/about/res/pbh_res/State_of_the_Plate_2015_WEB_Bookmarked.pdf"></a></p>
-    </div>
-    <div class="row">
-                <div class="col-md-2"><h2 class = Age>Age</h2>
-                     <div class="row-lg-1"><h2>18 to 24 years</h2>
-                    </div> <br>
-                    <div class="row-lg-1"><h2>24 to 32 years</h2>
-                    </div> <br>
+    <div class="container">
+        <div class="row">
+            <h1 class="col-md-12">Educational Attainment</h1>
+            <p class="col-md-12"> <a href="https://www.pbhfoundation.org/pdfs/about/res/pbh_res/State_of_the_Plate_2015_WEB_Bookmarked.pdf"></a></p>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h2 class=A ge>Age</h2>
+                <div class="row-lg-1">
+                    <h2>18 to 24 years</h2>
+                </div> <br>
+                <div class="row-lg-1">
+                    <h2>24 to 32 years</h2>
+                </div> <br>
+            </div>
+            <div class="col-md-2">
+                <h2>High School</h2>
+                <div class="overlay">
+                    <img class="dots" id="dots" alt="dots" />
+                    <svg class="pie" id="pie" width="168" height="168"></svg>
                 </div>
-                <div class="col-md-2"><h2>High School</h2>
-                    <div class="overlay">
-                        <img  class= "dots" id = "dots" alt="dots" />
-                        <svg class= "pie" id = "pie" width="168" height="168" ></svg>
-                    </div>
-                </div>
-                <div class="col-md-2"><h2>Bachelors</h2>
-                        <img  class= "dots" id = "dots1" alt="dots" width="168" height="168" />
-                        <svg class= "pie" id = "pie1" width="168" height="168" ></svg>
-                </div>
-                <div class="col-md-2"><h2>Masters</h2>
-                        <img  class= "dots" id = "dots2" alt="dots" width="168" height="168" />
-                        <svg class= "pie" id = "pie2" width="168" height="168" ></svg>
-                </div>
-                <div class="col-md-2"><h2>Doctorate</h2>
-                        <img  class= "dots" id = "dots3" alt="dots" width="168" height="168" />
-                        <svg class= "pie" id = "pie3" width="168" height="168" ></svg>
-                </div>
-                <div class="col-md-2"><h2>Professional</h2>
-                        <img  class= "dots" id = "dots4" alt="dots" width="168" height="168" />
-                        <svg class= "pie" id = "pie4" width="168" height="168" ></svg></div>
-                        
-    </div>
+            </div>
+            <div class="col-md-2">
+                <h2>Bachelors</h2>
+                <img class="dots" id="dots1" alt="dots" width="168" height="168" />
+                <svg class="pie" id="pie1" width="168" height="168"></svg>
+            </div>
+            <div class="col-md-2">
+                <h2>Masters</h2>
+                <img class="dots" id="dots2" alt="dots" width="168" height="168" />
+                <svg class="pie" id="pie2" width="168" height="168"></svg>
+            </div>
+            <div class="col-md-2">
+                <h2>Doctorate</h2>
+                <img class="dots" id="dots3" alt="dots" width="168" height="168" />
+                <svg class="pie" id="pie3" width="168" height="168"></svg>
+            </div>
+            <div class="col-md-2">
+                <h2>Professional</h2>
+                <img class="dots" id="dots4" alt="dots" width="168" height="168" />
+                <svg class="pie" id="pie4" width="168" height="168"></svg></div>
+
+        </div>
 
     </div>
 
- <svg class= "pie1" id = "pie1" width="168" height="168"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
-<script src="project3.js"></script>
+    <svg class="pie1" id="pie1" width="168" height="168"></svg>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="dot_plot.js"></script>
 </body>
 </html>

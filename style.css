@@ -18,7 +18,8 @@ a {
     display: flex;
 }
 
-.class, .names {
+.class,
+.names {
     font-weight: 300;
     font-size: 0.9em;
     line-height: 1.4em;
@@ -74,10 +75,6 @@ h2 {
 @media (max-width: 800px) {
     .sketch1-container {
         margin: 1em;
-    }
-
-    h2 {
-        font-size: 1em;
     }
 }
 
@@ -149,19 +146,32 @@ h2 {
 
 
 /*plot 2 styles*/
-.Age{
-    display: block; /* makes it have a width */
-     content: ""; /* clears default height */
-     margin-bottom: 80px; /* change this to whatever height you want it */
+
+.sketch2-container .row {
+    display: flex;
+}
+
+.col-md-2 {
+    text-align: center;
+    width: calc(100% / 6);
+}
+
+.Age {
+    display: block;
+    /* makes it have a width */
+    content: "";
+    /* clears default height */
+    margin-bottom: 80px;
+    /* change this to whatever height you want it */
 }
 
 .arc text {
-  font: 10px sans-serif;
-  text-anchor: middle;
+    font: 10px sans-serif;
+    text-anchor: middle;
 }
 
 .arc path {
-  stroke: #fff;
+    stroke: #fff;
 }
 
 .overlay {
@@ -172,7 +182,7 @@ h2 {
 }
 
 .pie {
-    position: absolute;
+    /*    position: absolute;*/
     width: 168px;
     height: 168px;
     z-index: -1;
@@ -187,36 +197,37 @@ h2 {
 
 
 /*plot 3 styles*/
-#plot3{
+
+#plot3 {
     width: 940px;
     height: 500px;
     margin: auto;
 }
 
-.label{
+.label {
     font-size: 1.1em;
     font-family: 'Source Sans Pro', sans-serif;
     color: #141414;
 }
 
-.line{
+.line {
     stroke-width: 1px;
     stroke: #a8a8a8;
     shape-rendering: geometricPrecision;
     opacity: .5;
 }
 
-.ring{
+.ring {
     stroke-width: 1px;
     stroke: #686868;
 }
 
-.radial{
+.radial {
     stroke-width: 2px;
     stroke: #141414;
 }
 
-.legend{
+.legend {
     font-family: 'Source Sans Pro', sans-serif;
     color: #141414;
     font-size: 1.1em;

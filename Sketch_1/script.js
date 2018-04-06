@@ -90,7 +90,6 @@ function parseData(d) {
             stateAbbr = us_states[i].abbreviation;
         }
     }
-
     return {
         id: +id,
         state: state,
