@@ -1,8 +1,9 @@
 var margin = {top: 10, bottom: 10, left: 10, right: 10};
 var width =  d3.select("#plot3").node().clientWidth - margin.left - margin.right;
 var height =  d3.select("#plot3").node().clientHeight - margin.top - margin.bottom;
-var radius = height*2/5;
+var radius = width*1/5;
 
+//contains all content of visualization
 var plot = d3.select("#plot3")
     .append('svg')
     .attr('width', width + margin.right + margin.left)
@@ -16,23 +17,22 @@ var color = ["#3961a0", "#a03887", "#7b38a0", "#38a057", "#98dd6a", "#dddd69", "
 
 function dataloaded (error,data){
     if(error) throw error;
-    console.log(data);
+    //console.log(data);
     
     starPlot(data[0]);
-    //function to select which data to display
+    //replace with function to select which data to display based on user selection
     plotData(data[2]);
     plotData(data[6]);
     plotData(data[9]);
     legend([data[2], data[6], data[9]]);
 }
 
-//separate into plotting chart and plotting data
+//plots the grid of the chart, based upon a sample datum which defines the number of radial segments and the levels of values
 function starPlot(datum){
-    //radial lines
     var incomeGroups = datum.values.length;
     var theta = 2*Math.PI/incomeGroups;
     
-    //rings
+    //rings for percentages
     var levels = 4;
     var rings = plot.append("g")
         .attr("transform", "translate(" + (width*1/3+margin.left) + "," +  (height/2+margin.top) + ")");
@@ -49,18 +49,19 @@ function starPlot(datum){
                 .attr("x2", r*Math.sin(theta))
                 .attr("y2", r*Math.cos(theta));
         }
-        //value along rings
+        //value label along rings
         rings.append("g")
             .append("text")
             .attr("class", "label")
             //.attr("position", "absolute")
             //.attr("z-index", "1")
             .attr("x", 5)
-            .attr("y", -n*radius/levels+5)
-            //manual, currently based on x scale, make automatic
-            .text((n*55/levels).toFixed(0)+"%");
+            .attr("y", -n*radius/levels+10)
+            //this is manual, currently based on x scale, need to make automatic
+            .text((n*45/levels).toFixed(0)+"%");
     }
     
+    //radial lines for each income bracket
     var radials = plot.append("g")
         .attr("transform", "translate(" + (width*1/3+margin.left) + "," +  (height/2+margin.top) + ")");
     for(i=0; i<incomeGroups; i++){
@@ -81,9 +82,9 @@ function starPlot(datum){
                 if(theta*i>0 && theta*i<Math.PI)
                     x+=35;
                 else if(theta*i>Math.PI && theta*i<2*Math.PI)
-                    x-=40;
+                    x-=65;
                 if(theta*i == Math.PI*10/7)
-                    x+=15;
+                    x+=10;
                 return x})
             .attr("y", 0)
             .text(datum.values[i].bracket);
@@ -91,13 +92,14 @@ function starPlot(datum){
 }
 
 function plotData(datum){
+    //plots points along radial lines in addition to filling area enclosed by those points
     var incomeGroups = datum.values.length;
     var theta = 2*Math.PI/incomeGroups;
     
     //data - points, lines
     //var maxval = d3.max(datum.values,function(d){return d.pct});
     var scale = d3.scaleLinear()
-        .domain([0, .55])
+        .domain([0, .45])
         .range([0, radius]);
     //convert values to y coords
     var y = datum.values.map(function(d){
@@ -130,7 +132,7 @@ function plotData(datum){
 function legend(datums){
     //title of legend
     var legend = plot.append("g")
-        .attr("transform", "translate(" + (width*2/3+margin.left) + "," +  (margin.top+50) + ")");
+        .attr("transform", "translate(" + (width*3/5+margin.left) + "," +  (margin.top+50) + ")");
     legend.append("g")
         .append("text")
         .attr("class", "legend")

@@ -28,6 +28,7 @@ a {
 .names {
     text-align: right;
     float: right;
+    font-size: 1.1em;
 }
 
 .container {
@@ -132,7 +133,7 @@ h2 {
 .plot .tooltip {
     position: absolute;
     visibility: hidden;
-    color: #141414;
+    color: #efefef;
     padding: 8px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 6px;
@@ -187,13 +188,13 @@ h2 {
 
 /*plot 3 styles*/
 #plot3{
-    width: 800px;
+    width: 940px;
     height: 500px;
     margin: auto;
 }
 
 .label{
-    font-size: 12px;
+    font-size: 1.1em;
     font-family: 'Source Sans Pro', sans-serif;
     color: #141414;
 }
@@ -218,4 +219,5 @@ h2 {
 .legend{
     font-family: 'Source Sans Pro', sans-serif;
     color: #141414;
+    font-size: 1.1em;
 }
