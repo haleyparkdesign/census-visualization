@@ -28,6 +28,7 @@ a {
 .names {
     text-align: right;
     float: right;
+    font-size: 1.1em;
 }
 
 .container {
@@ -193,7 +194,7 @@ h2 {
 }
 
 .label{
-    font-size: 12px;
+    font-size: 1.1em;
     font-family: 'Source Sans Pro', sans-serif;
     color: #141414;
 }
@@ -218,4 +219,5 @@ h2 {
 .legend{
     font-family: 'Source Sans Pro', sans-serif;
     color: #141414;
+    font-size: 1.4em;
 }
