@@ -1,3 +1,23 @@
+var slider = d3.select("#eduRange");
+var output = d3.select(".eduLevel");
+
+// Update the current slider value (each time you drag the slider handle)
+slider.on("input", function () {
+    if (this.value == 0) {
+        output.style("left", "7%")
+            .text("Less than 9th grade");
+    } else if (this.value == 1) {
+        output.style("left", "25%")
+            .text("High school graduate or equivalent");
+    } else if (this.value == 2) {
+        output.style("left", "50%")
+            .text("Some college or associate's degree");
+    } else {
+        output.style("left", "75%")
+            .text("Bachelor's degree or higher");
+    }
+})
+
 var statesByGeo = [
     "AK", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "ME",
     "  ", "  ", "  ", "  ", "  ", "  ", "WI", "  ", "  ", "  ", "VT", "NH",
@@ -81,7 +101,7 @@ function dataloaded(err, data) {
 
 function parseData(d) {
     var id = d.Id.split("US")[1];
-    var total = d["Percent; Estimate; Population 18 to 24 years - Less than high school graduate"]
+    var total = d["Percent; Estimate; Population 25 years and over - Less than 9th grade"]
     var radius = total * 2;
     var state = d.Geography;
     var stateAbbr;

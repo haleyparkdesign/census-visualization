@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3: Census Data</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:300,400,600" rel="stylesheet">
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <link href="normalize.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
@@ -22,13 +21,26 @@
         <div class="content">
             <p>This project visualizes census data on education. Around the U.S. access to education and quality of education are not uniform. The attainment of education varies by state of residence, age, and sex, amongst other factors. Education leads to differences in income as well. The visualizations below explain these phenomena.</p><br>
             <h2>Educational Attainment By State</h2>
-            <p>The size of the blob represents the percentage of people who attained the level of education. Move the sliders around!</p><br>
+            <p>The size of the blob represents the percentage of people who attained the level of education, in population 25 years or older. Move the sliders around!</p><br>
             <div class="sketch1-container">
-                <h3>Population 18 to 24 years</h3>
-                <h4>Less than high school graduate</h4> <br>
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="8" value="10" class="slider" id="myRange">
+
+                <!--
+                <div class="education-level">
+                    <h4 class="active">Less than 9th grade</h4>
+                    <h4 class="inactive">High school graduate<br>(includes equivalency)</h4>
+                    <h4 class="inactive">Some college or associate's degree</h4>
+                    <h4 class="inactive">Bachelor's degree or higher</h4>
                 </div>
+-->
+
+
+                <div class="slidecontainer"><br><br>
+                    <div class="range">
+                    <input type="range" min="0" max="3" value="0" class="slider" id="eduRange">
+                    <span class="eduLevel">Less than 9th grade</span>
+                    </div>
+                </div>
+
                 <div id='plot1' class="plot"></div>
             </div>
             <br><br>
