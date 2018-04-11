@@ -210,6 +210,12 @@ h2 {
     color: #141414;
 }
 
+.value {
+    font-size: 12;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #141414;
+}
+
 .line {
     stroke-width: 1px;
     stroke: #a8a8a8;
