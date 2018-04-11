@@ -1,22 +1,40 @@
-#plot{
+#plot3 {
     width: 800px;
     height: 500px;
-    background-color: beige;
+    margin: auto;
 }
 
-.label{
-    font-family: Arial;
-    font-size: 12px;
+.label {
+    font-size: 1.1 em;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #141414;
 }
 
-.line{
+.value {
+    font-size: 12;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #141414;
+}
+
+.line {
     stroke-width: 1px;
-    stroke: dimgrey;
+    stroke: #a8a8a8;
     shape-rendering: geometricPrecision;
-    /*fill: dimgrey;*/
     opacity: .5;
 }
 
-.legend{
-   font-family: Arial; 
+.ring {
+    stroke-width: 1px;
+    stroke: #686868;
+}
+
+.radial {
+    stroke-width: 2px;
+    stroke: #141414;
+}
+
+.legend {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #141414;
+    font-size: 1.1em;
 }
