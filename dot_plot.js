@@ -140,6 +140,9 @@ d3.csv("./data/Education/Educational_Attainment_of_the_Population_2017.csv", fun
         })
         .style('stroke-width', 0);
 
+    var tooltip = d3.select(".sketch2-container").append("div")
+        .attr("class", "tooltip")
+
 });
 
 function dots() {
