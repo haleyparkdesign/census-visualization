@@ -110,23 +110,30 @@ h2 {
 }
 
 .slidecontainer .eduLevel {
-    text-align: center;
     position: absolute;
-    top: -2.5em;
-    text-align: center;
-    font-weight: bold;
-    white-space: nowrap;
-    width: 60px;
-    height: 1em;
-    left: 7%;
+    top: -4.5em;
+    width: 108.5%;
+    margin-left: 0.53em;
+}
+
+.eduLevel .levelText {
+    display: inline-block;
+    width: 15.4%;
+    padding-left: 0.55em;
+    border-left: 1px solid #212121;
+    vertical-align: top;
+    height: 7.5ex;
+}
+
+.edulevel #edu0 {
+    font-weight: 800;
 }
 
 .slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 700px;
+    width: 92.4%;
     height: 8px;
-    margin: 0 auto;
     display: block;
     background: #a8a8a8;
     outline: none;

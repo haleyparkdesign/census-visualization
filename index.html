@@ -21,23 +21,21 @@
         <div class="content">
             <p>This project visualizes census data on education. Around the U.S. access to education and quality of education are not uniform. The attainment of education varies by state of residence, age, and sex, amongst other factors. Education leads to differences in income as well. The visualizations below explain these phenomena.</p><br>
             <h2>Educational Attainment By State</h2>
-            <p>The size of the blob represents the percentage of people who attained the level of education, in population 25 years or older. Move the sliders around!</p><br>
+            <p>The size of the blob represents the percentage of people who attained the level of education, in population 25 years or older. Move the sliders around!</p><br><br><br><br>
             <div class="sketch1-container">
-
-                <!--
-                <div class="education-level">
-                    <h4 class="active">Less than 9th grade</h4>
-                    <h4 class="inactive">High school graduate<br>(includes equivalency)</h4>
-                    <h4 class="inactive">Some college or associate's degree</h4>
-                    <h4 class="inactive">Bachelor's degree or higher</h4>
-                </div>
--->
-
-
                 <div class="slidecontainer"><br><br>
                     <div class="range">
-                    <input type="range" min="0" max="3" value="0" class="slider" id="eduRange">
-                    <span class="eduLevel">Less than 9th grade</span>
+                        <div class="eduLevel">
+                            <div class="levelText" id="edu0">Less than high school </div>
+<!--                            <div class="levelText" id="edu1">9th to 12th grade,<br>no diploma</div>-->
+                            <div class="levelText" id="edu2">High school graduate<br> or equivalent</div>
+                            <div class="levelText" id="edu3">Some college,<br>no diploma</div>
+                            <div class="levelText" id="edu4">Associate's degree</div>
+                            <div class="levelText" id="edu5">Bachelor's degree</div>
+                            <div class="levelText" id="edu6">Graduate or professional degree</div>
+                        </div>
+                        <input type="range" min="0" max="5" value="0" class="slider" id="eduRange">
+
                     </div>
                 </div>
 

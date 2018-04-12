@@ -1,21 +1,12 @@
 var slider = d3.select("#eduRange");
-var output = d3.select(".eduLevel");
+var sliderValue = 0;
 
 // Update the current slider value (each time you drag the slider handle)
 slider.on("input", function () {
-    if (this.value == 0) {
-        output.style("left", "7%")
-            .text("Less than 9th grade");
-    } else if (this.value == 1) {
-        output.style("left", "25%")
-            .text("High school graduate or equivalent");
-    } else if (this.value == 2) {
-        output.style("left", "50%")
-            .text("Some college or associate's degree");
-    } else {
-        output.style("left", "75%")
-            .text("Bachelor's degree or higher");
-    }
+    d3.selectAll(".levelText").style("font-weight", "100");
+    d3.select("#edu" + this.value).style("font-weight", "800");
+    sliderValue = this.value;
+    updateData(sliderValue);
 })
 
 var statesByGeo = [
@@ -38,20 +29,63 @@ var plot1_svg = plot1.append('svg')
     .attr('height', height);
 
 // queue data files, parse them and use them
-var queue = d3.queue()
-    .defer(d3.csv, "Sketch_1/data/data.csv", parseData)
-    .await(dataloaded);
+var rows = ["Percent; Estimate; Population 25 years and over - Less than 9th grade", "Percent; Margin of Error; Population 25 years and over - 9th to 12th grade, no diploma", "Percent; Estimate; Population 25 years and over - High school graduate (includes equivalency)", "Percent; Estimate; Population 25 years and over - Some college, no degree", "Percent; Estimate; Population 25 years and over - Associate's degree", "Percent; Estimate; Population 25 years and over - Bachelor's degree", "Percent; Estimate; Population 25 years and over - Graduate or professional degree"];
+var sizeFactor = 1.1;
 
-function dataloaded(err, data) {
+d3.csv("Sketch_1/data/data.csv", function (d) {
+    var id = d.Id.split("US")[1];
+    var total = d[rows[0]];
+    var total1 = d[rows[1]];
+    var total2 = d[rows[2]];
+    var total3 = d[rows[3]];
+    var total4 = d[rows[4]];
+    var total5 = d[rows[5]];
+    var total6 = d[rows[6]];
+    var total7 = d[rows[7]];
+
+    var radius = total * sizeFactor;
+    var state = d.Geography;
+    var stateAbbr;
+    for (i = 0; i < us_states.length; i++) {
+        if (us_states[i].name == state.toUpperCase()) {
+            stateAbbr = us_states[i].abbreviation;
+        }
+    }
+    return {
+        id: +id,
+        state: state,
+        total: +total,
+        total1: +total1,
+        total2: +total2,
+        total3: +total3,
+        total4: +total4,
+        total5: +total5,
+        total6: +total6,
+        total7: +total7,
+        radius: +radius,
+        stateAbbr: stateAbbr
+    };
+}, function (data) {
     // Bind the data to the SVG and create one path per GeoJSON feature
     var node = plot1_svg.selectAll(".state")
         .data(data)
         .enter()
         .append("g")
         .on("mouseover", function (d) {
-            tooltip.html(d.state + "<br/>" + d.total + "%");
-
-            return tooltip.style("visibility", "visible")
+            var percentage = d.total;
+            if (sliderValue == 1) {
+                percentage = d.total2;
+            } else if (sliderValue == 2) {
+                percentage = d.total3;
+            } else if (sliderValue == 3) {
+                percentage = d.total4;
+            } else if (sliderValue == 4) {
+                percentage = d.total5;
+            } else if (sliderValue == 5) {
+                percentage = d.total6;
+            }
+            tooltip.html(d.state + "<br/>" + percentage + "%");
+            return tooltip.style("visibility", "visible");
         })
         .on("mousemove", function () {
             return tooltip
@@ -70,14 +104,13 @@ function dataloaded(err, data) {
 
             data.forEach(function (e) {
                 if (mapID === e.id) {
-                    r = e.radius;
+                    r = e.total + e.total1;
                 }
             });
 
             return r;
         })
         .attr("fill", " #F7B4B1")
-        .attr("stroke", "#fff")
         .attr("stroke-width", 1)
         .attr("opacity", 0.8)
 
@@ -97,12 +130,79 @@ function dataloaded(err, data) {
                 return "translate(" + [placeState(d.stateAbbr)[0] + (width / 7), placeState(d.stateAbbr)[1] + (height / 7)] + ")";
             });
         });
+});
+
+function updateData(sliderValue) {
+    // Get the data again
+    d3.csv("Sketch_1/data/data.csv", function (d) {
+        console.log(rows[sliderValue]);
+        var id = d.Id.split("US")[1];
+        var total = d[rows[sliderValue]];
+        var r = total * 2;
+        var state = d.Geography;
+        var stateAbbr;
+        for (i = 0; i < us_states.length; i++) {
+            if (us_states[i].name == state.toUpperCase()) {
+                stateAbbr = us_states[i].abbreviation;
+            }
+        }
+        return {
+            id: +id,
+            state: state,
+            total: +total,
+            r: +r,
+            stateAbbr: stateAbbr
+        };
+    }, function (data) {
+        var svg = d3.select("body").transition();
+        svg.selectAll("circle")
+            .attr("r", function (d) {
+                if (sliderValue == 0) {
+                    return (d.total + d.total1) * sizeFactor;
+                } else if (sliderValue == 1) {
+                    return d.total2 * sizeFactor;
+                } else if (sliderValue == 2) {
+                    return d.total3 * sizeFactor;
+                } else if (sliderValue == 3) {
+                    return d.total4 * sizeFactor;
+                } else if (sliderValue == 4) {
+                    return d.total5 * sizeFactor;
+                } else if (sliderValue == 5) {
+                    return d.total6 * sizeFactor;
+                } else {
+                    return d.total7 * sizeFactor;
+                }
+            })
+
+        svg.selectAll(".toolTip").on("mouseover", function (d) {
+            if (sliderValue == 0) {
+                return d.state + "<br/>" + (d.total + d.total1) + "%";
+            } else if (sliderValue == 1) {
+                d.state + "<br/>" + d.total2 + "%";
+            } else if (sliderValue == 2) {
+                d.state + "<br/>" + d.total3 + "%";
+            } else if (sliderValue == 3) {
+                d.state + "<br/>" + d.total4 + "%";
+            } else if (sliderValue == 4) {
+                d.state + "<br/>" + d.total5 + "%";
+            } else if (sliderValue == 5) {
+                d.state + "<br/>" + d.total6 + "%";
+            } else {
+                d.state + "<br/>" + d.total7 + "%";
+            }
+
+        })
+    });
 }
 
+
+
 function parseData(d) {
+    console.log(rows[sliderValue]);
+
     var id = d.Id.split("US")[1];
-    var total = d["Percent; Estimate; Population 25 years and over - Less than 9th grade"]
-    var radius = total * 2;
+    var total = d[rows[sliderValue]]
+    var radius = total * 3;
     var state = d.Geography;
     var stateAbbr;
     for (i = 0; i < us_states.length; i++) {
@@ -130,7 +230,6 @@ function placeState(state) {
             y = Math.floor(i / 12);
         }
     }
-
     x = x * factor;
     y = y * factor;
     return [x, y]
