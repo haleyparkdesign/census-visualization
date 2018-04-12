@@ -131,6 +131,7 @@ h2 {
 
 .slider {
     -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     width: 92.4%;
     height: 8px;
@@ -150,10 +151,13 @@ h2 {
 }
 
 .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #17307a;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #141414;
     cursor: pointer;
+    border-radius: 100%;
+    border: none;
 }
 
 .plot {
