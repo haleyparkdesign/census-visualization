@@ -229,7 +229,29 @@ d3.select(".values-list").on("change", function () {
 
 
 d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", function (d) {
+<<<<<<< HEAD
 
+=======
+    typeDispatch.on("changePie", function (type, i) {
+        showPie = type;
+        // update element and functions according to the type selected
+        if (showPie === "18 to 24 years") {
+           d = d.filter(function (row) {
+                return row.Age == "18 to 24 years"
+            });
+        } else if (showPie === "25 to 29 years") {
+            d = d.filter(function (row) {
+                return row.Age == "25 to 29 years"
+            });
+        } else if (showPie === "30 to 34 years") {
+            d = d.filter(function (row) {
+                return row.Age == "30 to 34 years"
+            });
+        }
+        console.log("d is "+ d);
+    })
+    
+>>>>>>> cc11ec381f6c6153d1d3c86b28e551be1b8505e0
     var arc0 = g.selectAll(".arc")
         .data(pie(d))
         .enter().append("g")
@@ -238,7 +260,11 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
     arc0.append("path")
         .attr("d", path)
         .attr("fill", function (d) {
+<<<<<<< HEAD
             console.log(d);
+=======
+        //console.log(d);
+>>>>>>> cc11ec381f6c6153d1d3c86b28e551be1b8505e0
             return color(d.data.Sex);
         })
         .style('stroke-width', 0);
@@ -440,6 +466,7 @@ dotLegend.append("circle")
     .attr("transform", "translate(0, 5)");
 
 dotLegend.append("text")
+<<<<<<< HEAD
     .attr("x", 50)
     .attr("y", legendHeight / 2 + 5)
     .text("Male");
@@ -447,4 +474,13 @@ dotLegend.append("text")
 dotLegend.append("text")
     .attr("x", 140)
     .attr("y", legendHeight / 2 + 5)
+=======
+    .attr("x", 330)
+    .attr("y", legendHeight/2+5)
+    .text("Male");
+
+dotLegend.append("text")
+    .attr("x", 530)
+    .attr("y", legendHeight/2+5)
+>>>>>>> cc11ec381f6c6153d1d3c86b28e551be1b8505e0
     .text("Female");
