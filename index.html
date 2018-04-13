@@ -27,7 +27,6 @@
                     <div class="range">
                         <div class="eduLevel">
                             <div class="levelText" id="edu0">Less than high school </div>
-                            <!--                            <div class="levelText" id="edu1">9th to 12th grade,<br>no diploma</div>-->
                             <div class="levelText" id="edu1">High school graduate<br> or equivalent</div>
                             <div class="levelText" id="edu2">Some college,<br>no diploma</div>
                             <div class="levelText" id="edu3">Associate's degree</div>
@@ -38,6 +37,7 @@
                     </div>
                 </div>
                 <div id='plot1' class="plot"></div>
+                <a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_S1501" target="_blank"><span>Data source:<br>U.S. Census Bureau</span></a>
                 <p>About 17.5% of Puerto Ricans attain less than a high school degree. Washington D.C. ranked the highest in the percentage of attaining graduate or professional degree with a big gap between Massachusetts, which came in second.</p>
             </div>
             <br><br>
@@ -51,42 +51,42 @@
                 <div id="dot_legend"></div>
                 <div class="row">
                     <div class="col-md-2">
-                        <h3 class="Age">Age</h3>
-                        <div class="row-lg-1">
-                            <h3>18 to 24 years</h3>
-                        </div>
-                        <br>
-                        <div class="row-lg-1">
-                            <h3>24 to 32 years</h3>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="col-md-2">
-                        <h3>High School</h3>
-                        <div class="overlay">
-                            <img class="dots" id="dots" alt="dots" />
-                            <svg class="pie" id="pie" width="168" height="168"></svg>
+                        <h3>Age</h3>
+                        <div class="control-module drop-down">
+                            <div class="select">
+                                <span class="label">Select</span>
+                                <select class="form-control values-list" id="values"></select>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <h3>Bachelors</h3>
-                        <img class="dots" id="dots1" alt="dots" width="168" height="168" />
-                        <svg class="pie" id="pie1" width="168" height="168"></svg>
-                    </div>
-                    <div class="col-md-2">
-                        <h3>Masters</h3>
-                        <img class="dots" id="dots2" alt="dots" width="168" height="168" />
-                        <svg class="pie" id="pie2" width="168" height="168"></svg>
-                    </div>
-                    <div class="col-md-2">
-                        <h3>Doctorate</h3>
-                        <img class="dots" id="dots3" alt="dots" width="168" height="168" />
-                        <svg class="pie" id="pie3" width="168" height="168"></svg>
-                    </div>
-                    <div class="col-md-2">
-                        <h3>Professional</h3>
-                        <img class="dots" id="dots4" alt="dots" width="168" height="168" />
-                        <svg class="pie" id="pie4" width="168" height="168"></svg>
+                    <div class="content col-md-2">
+                        <div>
+                            <h3>High School</h3>
+                            <div class="overlay">
+                                <img class="dots" id="dots" alt="dots"/>
+                                <svg class="pie" id="pie" width="168" height="168"></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Bachelors</h3>
+                            <img class="dots" id="dots1" alt="dots" width="168" height="168"/>
+                            <svg class="pie" id="pie1" width="168" height="168"></svg>
+                        </div>
+                        <div>
+                            <h3>Masters</h3>
+                            <img class="dots" id="dots2" alt="dots" width="168" height="168"/>
+                            <svg class="pie" id="pie2" width="168" height="168"></svg>
+                        </div>
+                        <div>
+                            <h3>Doctorate</h3>
+                            <img class="dots" id="dots3" alt="dots" width="168" height="168"/>
+                            <svg class="pie" id="pie3" width="168" height="168"></svg>
+                        </div>
+                        <div>
+                            <h3>Professional</h3>
+                            <img class="dots" id="dots4" alt="dots" width="168" height="168"/>
+                            <svg class="pie" id="pie4" width="168" height="168"></svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,6 +102,7 @@
     <script src="Sketch_1/data/us_states.json"></script>
     <script src="Sketch_1/script.js"></script>
     <script src="dot_plot.js"></script>
+<!--    <script src="dot_plot_2.js"></script>-->
     <script src="Sketch_3/starplot.js"></script>
 </body>
 </html>

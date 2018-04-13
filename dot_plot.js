@@ -23,7 +23,7 @@ var svg3 = d3.select("#pie3"),
 var svg4 = d3.select("#pie4"),
     g4 = svg4.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var color = d3.scaleOrdinal(["#a0bade", "#907ecc"]);
+var color = d3.scaleOrdinal(["#a0bade", "#9794d9"]);
 
 var pie = d3.pie()
     .sort(null)
@@ -75,10 +75,52 @@ var path4 = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(0);
 
-d3.csv("./data/Education/Educational_Attainment_of_the_Population_2017.csv", function (d) {
-    d = d.filter(function (row) {
-        return row.Age == "..18 to 24 years"
-    });
+
+var typeDispatch = d3.dispatch('changePie');
+
+var valuesPie = [{
+        value: "18 to 24 years",
+        n: 0
+    },
+    {
+        value: "25 to 29 years",
+        n: 1
+}, {
+        value: "30 to 34 years",
+        n: 2
+}];
+
+valuesPie.forEach(function (d) {
+    d3.select(".values-list")
+        .append("option")
+        .html(d.value)
+        .attr("value", d.value);
+});
+d3.select(".values-list").on("change", function () {
+    typeDispatch.call("changePie", this, this.value);
+    console.log(this.value);
+});
+
+var showPie = "18 to 24 years";
+
+d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", function (d) {
+    typeDispatch.on("changePie", function (type, i) {
+        showPie = type;
+        // update element and functions according to the type selected
+        if (showPie === "18 to 24 years") {
+            d = d.filter(function (row) {
+                return row.Age == "18 to 24 years"
+            });
+        } else if (showPie === "25 to 29 years") {
+            d = d.filter(function (row) {
+                return row.Age == "25 to 29 years"
+            });
+        } else if (showPie === "30 to 34 years") {
+            d = d.filter(function (row) {
+                return row.Age == "30 to 34 years"
+            });
+        }
+    })
 
     var arc0 = g.selectAll(".arc")
         .data(pie(d))
@@ -88,6 +130,7 @@ d3.csv("./data/Education/Educational_Attainment_of_the_Population_2017.csv", fun
     arc0.append("path")
         .attr("d", path)
         .attr("fill", function (d) {
+        console.log(d);
             return color(d.data.Sex);
         })
         .style('stroke-width', 0);
@@ -139,73 +182,6 @@ d3.csv("./data/Education/Educational_Attainment_of_the_Population_2017.csv", fun
             return color(d.data.Sex)
         })
         .style('stroke-width', 0);
-
-    var tooltip = d3.select(".sketch2-container").append("div")
-        .attr("class", "tooltip")
-
 });
 
-function dots() {
-    return "./dot_template.png";
-}
-
-function dots1() {
-    return "./dot_template.png";
-}
-
-function dots2() {
-    return "./dot_template.png";
-}
-
-function dots3() {
-    return "./dot_template.png";
-}
-
-function dots4() {
-    return "./dot_template.png";
-}
-document.getElementById("dots4").src = dots4();
-document.getElementById("dots3").src = dots3();
-document.getElementById("dots2").src = dots2();
-document.getElementById("dots1").src = dots1();
-document.getElementById("dots").src = dots();
-
-//legend for dots
-var legendHeight = 30;
-var dotLegend = d3.select("#dot_legend").append("svg")
-    .attr("width", 800)
-    .attr("height", legendHeight)
-    .attr("transform", "translate(710, -10)");
-
-dotLegend.append("rect")
-    .attr("width", 200)
-    .attr("height", legendHeight)
-    .attr("fill-opacity", "0")
-    .attr("stroke", "#212121")
-    .attr("stroke-width", 0.5)
-
-dotLegend.append("circle")
-    .attr("r", legendHeight / 3)
-    .attr("cx", 30)
-    .attr("cy", legendHeight / 3)
-    .attr("stroke", "none")
-    .attr("fill", "#9794d9")
-    .attr("transform", "translate(0, 5)");
-
-dotLegend.append("circle")
-    .attr("r", legendHeight / 3)
-    .attr("cx", 125)
-    .attr("cy", legendHeight / 3)
-    .attr("stroke", "none")
-    .attr("fill", "#a0bade")
-    .attr("transform", "translate(0, 5)");
-
-dotLegend.append("text")
-    .attr("x", 50)
-    .attr("y", legendHeight / 2 + 5)
-    .text("Female");
-
-dotLegend.append("text")
-    .attr("x", 145)
-    .attr("y", legendHeight / 2 + 5)
-    .text("Male");
+d3.selectAll(".dots").attr("src", "dot_template.png")

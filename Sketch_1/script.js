@@ -42,8 +42,6 @@ d3.csv("Sketch_1/data/data.csv", function (d) {
     var total5 = d[rows[5]];
     var total6 = d[rows[6]];
     var total7 = d[rows[7]];
-
-    var radius = total * sizeFactor;
     var state = d.Geography;
     var stateAbbr;
     for (i = 0; i < us_states.length; i++) {
@@ -62,7 +60,6 @@ d3.csv("Sketch_1/data/data.csv", function (d) {
         total5: +total5,
         total6: +total6,
         total7: +total7,
-        radius: +radius,
         stateAbbr: stateAbbr
     };
 }, function (data) {
@@ -107,7 +104,6 @@ d3.csv("Sketch_1/data/data.csv", function (d) {
                     r = e.total + e.total1;
                 }
             });
-
             return r;
         })
         .attr("fill", " #F7B4B1")
@@ -135,26 +131,7 @@ d3.csv("Sketch_1/data/data.csv", function (d) {
 
 function updateData(sliderValue) {
     // Get the data again
-    d3.csv("Sketch_1/data/data.csv", function (d) {
-        console.log(rows[sliderValue]);
-        var id = d.Id.split("US")[1];
-        var total = d[rows[sliderValue]];
-        var r = total * 2;
-        var state = d.Geography;
-        var stateAbbr;
-        for (i = 0; i < us_states.length; i++) {
-            if (us_states[i].name == state.toUpperCase()) {
-                stateAbbr = us_states[i].abbreviation;
-            }
-        }
-        return {
-            id: +id,
-            state: state,
-            total: +total,
-            r: +r,
-            stateAbbr: stateAbbr
-        };
-    }, function (data) {
+    d3.csv("Sketch_1/data/data.csv", function (d) {}, function (data) {
         var svg = d3.select("body").transition();
         svg.selectAll(".state-circle")
             .attr("r", function (d) {
@@ -196,30 +173,6 @@ function updateData(sliderValue) {
     });
 }
 
-
-
-function parseData(d) {
-    console.log(rows[sliderValue]);
-
-    var id = d.Id.split("US")[1];
-    var total = d[rows[sliderValue]]
-    var radius = total * 3;
-    var state = d.Geography;
-    var stateAbbr;
-    for (i = 0; i < us_states.length; i++) {
-        if (us_states[i].name == state.toUpperCase()) {
-            stateAbbr = us_states[i].abbreviation;
-        }
-    }
-    return {
-        id: +id,
-        state: state,
-        total: +total,
-        radius: +radius,
-        stateAbbr: stateAbbr
-    }
-}
-
 function placeState(state) {
     var x = 0;
     var y = 0;
@@ -236,7 +189,6 @@ function placeState(state) {
     return [x, y]
 }
 
-
 var legend = plot1_svg.append("g")
     .attr("class", "legend")
     .attr("transform", "translate(994,80)")
@@ -251,7 +203,7 @@ legend.append("rect")
 
 var leg1 = legend.append("g");
 
-leg1.append("circle").attr("r", 10)
+leg1.append("circle").attr("r", 10 * sizeFactor)
     .attr("fill", "#F7B4B1")
     .attr("stroke-width", 1)
     .attr("opacity", 0.8);
@@ -261,7 +213,7 @@ leg1.append("text").text("10%")
 var leg2 = legend.append("g")
     .attr("transform", "translate(0,50)");
 
-leg2.append("circle").attr("r", 20)
+leg2.append("circle").attr("r", 20 * sizeFactor)
     .attr("fill", " #F7B4B1")
     .attr("stroke-width", 1)
     .attr("opacity", 0.8)
@@ -271,7 +223,7 @@ leg2.append("text").text("20%")
 var leg3 = legend.append("g")
     .attr("transform", "translate(0,120)");
 
-leg3.append("circle").attr("r", 30)
+leg3.append("circle").attr("r", 30 * sizeFactor)
     .attr("fill", " #F7B4B1")
     .attr("stroke-width", 1)
     .attr("opacity", 0.8)
@@ -281,7 +233,7 @@ leg3.append("text").text("30%")
 var leg4 = legend.append("g")
     .attr("transform", "translate(0,210)");
 
-leg4.append("circle").attr("r", 40)
+leg4.append("circle").attr("r", 40 * sizeFactor)
     .attr("fill", " #F7B4B1")
     .attr("stroke-width", 1)
     .attr("opacity", 0.8)

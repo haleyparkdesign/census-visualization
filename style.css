@@ -92,7 +92,8 @@ h2 {
 }
 
 #plot1 {
-    margin-left: -70px;
+    margin-top: 10px;
+    margin-left: -80px;
 }
 
 @media (max-width: 800px) {
@@ -190,10 +191,32 @@ h2 {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+.sketch1-container {
+    position: relative;
+}
+
+.sketch1-container a {
+    text-align: right;
+    position: absolute;
+    right: -70px;
+    bottom: 270px;
+}
+
 /*plot 2 styles*/
 
 .sketch2-container {
     margin-top: -20px;
+}
+
+.sketch2-container .content,
+.sketch2-container .content2,
+.sketch2-container .content3 {
+    display: flex;
+}
+
+.sketch2-container .content2,
+.sketch2-container .content3 {
+/*    visibility: collapse;*/
 }
 
 .sketch2-container .row {
@@ -210,8 +233,23 @@ h2 {
     /* makes it have a width */
     content: "";
     /* clears default height */
-    margin-bottom: 80px;
+    margin-bottom: 30px;
     /* change this to whatever height you want it */
+}
+
+.sketch2-container .label,
+.sketch2-container select {
+    font-family: 'Source sans pro';
+    font-size: 1em;
+    font-weight: 400;
+    text-align: left;
+    display: block;
+    width: 85%;
+}
+
+.sketch2-container .label {
+    margin-bottom: 0.5em;
+    line-height: 1.4em;
 }
 
 .arc text {
