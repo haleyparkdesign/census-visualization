@@ -192,10 +192,10 @@ dotLegend.append("circle")
 
 dotLegend.append("text")
     .attr("x", 330)
-    .attr("y" legendHeight/2)
+    .attr("y", legendHeight/2)
     .text("Male");
 
 dotLegend.append("text")
     .attr("x", 530)
-    .attr("y" legendHeight/2)
+    .attr("y", legendHeight/2)
     .text("Female");
