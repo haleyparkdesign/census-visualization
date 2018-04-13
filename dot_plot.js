@@ -120,10 +120,8 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
                 return row.Age == "30 to 34 years"
             });
         }
-        console.log("d is "+ d.data.Sex);
+        console.log("d is "+ d);
     })
-    
-    //console.log("d is "+d);
     
     var arc0 = g.selectAll(".arc")
         .data(pie(d))
@@ -133,7 +131,7 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
     arc0.append("path")
         .attr("d", path)
         .attr("fill", function (d) {
-        console.log(d);
+        //console.log(d);
             return color(d.data.Sex);
         })
         .style('stroke-width', 0);
