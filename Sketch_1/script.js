@@ -19,7 +19,7 @@ var statesByGeo = [
     "  ", "  ", "  ", "  ", "OK", "LA", "MS", "AL", "GA", "  ", "  ", "  ",
     "HI", "  ", "  ", "  ", "TX", "  ", "  ", "  ", "  ", "FL", "  ", "PR"];
 
-var width = d3.select('#plot1').node().clientWidth,
+var width = d3.select('#plot1').node().clientWidth + 200,
     height = d3.select('#plot1').node().clientHeight;
 
 var plot1 = d3.select('#plot1')
@@ -113,6 +113,7 @@ d3.csv("Sketch_1/data/data.csv", function (d) {
         .attr("fill", " #F7B4B1")
         .attr("stroke-width", 1)
         .attr("opacity", 0.8)
+        .attr("class", "state-circle")
 
     node.append("text")
         .attr("text-anchor", "middle")
@@ -155,7 +156,7 @@ function updateData(sliderValue) {
         };
     }, function (data) {
         var svg = d3.select("body").transition();
-        svg.selectAll("circle")
+        svg.selectAll(".state-circle")
             .attr("r", function (d) {
                 if (sliderValue == 0) {
                     return (d.total + d.total1) * sizeFactor;
@@ -234,3 +235,57 @@ function placeState(state) {
     y = y * factor;
     return [x, y]
 }
+
+
+var legend = plot1_svg.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(994,80)")
+
+legend.append("rect")
+    .attr("width", 150)
+    .attr("height", 300)
+    .attr("fill-opacity", "0")
+    .attr("stroke","#212121")
+    .attr("stroke-width", 0.5)
+    .attr("transform", "translate(-54, -30)");
+
+var leg1 = legend.append("g");
+
+leg1.append("circle").attr("r", 10)
+    .attr("fill", "#F7B4B1")
+    .attr("stroke-width", 1)
+    .attr("opacity", 0.8);
+
+leg1.append("text").text("10%")
+
+var leg2 = legend.append("g")
+    .attr("transform", "translate(0,50)");
+
+leg2.append("circle").attr("r", 20)
+    .attr("fill", " #F7B4B1")
+    .attr("stroke-width", 1)
+    .attr("opacity", 0.8)
+
+leg2.append("text").text("20%")
+
+var leg3 = legend.append("g")
+    .attr("transform", "translate(0,120)");
+
+leg3.append("circle").attr("r", 30)
+    .attr("fill", " #F7B4B1")
+    .attr("stroke-width", 1)
+    .attr("opacity", 0.8)
+
+leg3.append("text").text("30%")
+
+var leg4 = legend.append("g")
+    .attr("transform", "translate(0,210)");
+
+leg4.append("circle").attr("r", 40)
+    .attr("fill", " #F7B4B1")
+    .attr("stroke-width", 1)
+    .attr("opacity", 0.8)
+
+leg4.append("text").text("40%")
+
+legend.selectAll("text").attr("transform", "translate(55, 5)")

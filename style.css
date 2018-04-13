@@ -92,7 +92,7 @@ h2 {
 }
 
 #plot1 {
-    /*margin-left: -65px;*/
+    margin-left: -70px;
 }
 
 @media (max-width: 800px) {
@@ -111,18 +111,19 @@ h2 {
 
 .slidecontainer .eduLevel {
     position: absolute;
-    top: -4.5em;
+    top: -4.0em;
     width: 108.5%;
     margin-left: 0.53em;
+    z-index: -10;
 }
 
 .eduLevel .levelText {
     display: inline-block;
     width: 15.4%;
     padding-left: 0.55em;
-    border-left: 1px solid #212121;
+    border-left: 1px solid #a8a8a8;
     vertical-align: top;
-    height: 7.5ex;
+    height: 8.5ex;
 }
 
 #edu0 {
@@ -133,11 +134,12 @@ h2 {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 92.4%;
-    height: 8px;
+    width: 92.6%;
+    height: 3px;
     display: block;
-    background: #a8a8a8;
+    background-color: #a8a8a8;
     outline: none;
+    margin-left: -0.1em;
 }
 
 .slider::-webkit-slider-thumb {
@@ -187,7 +189,6 @@ h2 {
 .plot .tooltip-inner {
     background-color: rgba(0, 0, 0, 0.7);
 }
-
 
 /*plot 2 styles*/
 
