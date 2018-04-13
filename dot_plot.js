@@ -189,7 +189,7 @@ dotLegend.append("circle")
     .attr("cx", 30)
     .attr("cy", legendHeight / 3)
     .attr("stroke", "none")
-    .attr("fill", "#a0bade")
+    .attr("fill", "#9794d9")
     .attr("transform", "translate(0, 5)");
 
 dotLegend.append("circle")
@@ -197,7 +197,7 @@ dotLegend.append("circle")
     .attr("cx", 125)
     .attr("cy", legendHeight / 3)
     .attr("stroke", "none")
-    .attr("fill", "#9794d9")
+    .attr("fill", "#a0bade")
     .attr("transform", "translate(0, 5)");
 
 dotLegend.append("text")
