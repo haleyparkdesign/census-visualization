@@ -185,3 +185,32 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
 });
 
 d3.selectAll(".dots").attr("src", "dot_template.png")
+
+var legendHeight = 50;
+var dotLegend = d3.select("#dot_legend").append("svg")
+    .attr("width", 800)
+    .attr("height", legendHeight);
+
+dotLegend.append("circle")
+    .attr("r", legendHeight/2)
+    .attr("cx", 300)
+    .attr("cy", legendHeight/2)
+    .attr("stroke", "none")
+    .attr("fill", "#9794d9");
+          
+dotLegend.append("circle")
+    .attr("r", legendHeight/2)
+    .attr("cx", 500)
+    .attr("cy", legendHeight/2)
+    .attr("stroke", "none")
+    .attr("fill", "#a0bade");
+
+dotLegend.append("text")
+    .attr("x", 330)
+    .attr("y" legendHeight/2)
+    .text("Male");
+
+dotLegend.append("text")
+    .attr("x", 530)
+    .attr("y" legendHeight/2)
+    .text("Female");
