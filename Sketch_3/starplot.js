@@ -52,7 +52,8 @@ function dataloaded(error, data) {
                     plotData(data[i])
 
             d3.event.stopPropagation();
-        });
+        })
+        .style("cursor", "pointer");
 }
 
 //plots the grid of the chart, based upon a sample datum which defines the number of radial segments and the levels of values
