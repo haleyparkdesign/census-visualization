@@ -209,14 +209,15 @@ h2 {
 }
 
 .sketch2-container .content,
-.sketch2-container .content2,
-.sketch2-container .content3 {
+.sketch2-container .content1,
+.sketch2-container .content2 {
     display: flex;
 }
 
 .sketch2-container .content2,
-.sketch2-container .content3 {
-/*    visibility: collapse;*/
+.sketch2-container .content1 {
+    visibility: collapse;
+    display: none;
 }
 
 .sketch2-container .row {
