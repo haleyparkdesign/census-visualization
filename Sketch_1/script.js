@@ -86,8 +86,8 @@ d3.csv("Sketch_1/data/data.csv", function (d) {
         })
         .on("mousemove", function () {
             return tooltip
-                .style("top", (d3.event.pageY - 10) + "px")
-                .style("left", (d3.event.pageX + 10) + "px");
+                .style("left", (d3.event.pageX - 245) + "px")
+                .style("top", (d3.event.pageY - 655) + "px");
         })
         .on("mouseout", function () {
             return tooltip.style("visibility", "hidden");
