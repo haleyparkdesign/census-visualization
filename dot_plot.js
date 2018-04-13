@@ -171,7 +171,7 @@ document.getElementById("dots1").src = dots1();
 document.getElementById("dots").src = dots();
 
 //legend for dots
-var legendHeight = 50;
+var legendHeight = 30;
 var dotLegend = d3.select("#dot_legend").append("svg")
     .attr("width", 800)
     .attr("height", legendHeight);
