@@ -11,14 +11,14 @@ var radius = width * 1 / 5;
 //contains all content of visualization
 var plot = d3.select("#plot3")
     .append('svg')
-    .attr('width', width + margin.right + margin.left)
+    .attr('width', width + margin.right + margin.left + 4)
     .attr('height', height + margin.top + margin.bottom);
 
 var queue = d3.queue()
     .defer(d3.csv, "Sketch_3/income_education_condensed.csv", parseData)
     .await(dataloaded);
 
-var colors = ["#3961a0", "#a03887", "#7b38a0", "#38a057", "#98dd6a", "#dddd69", "#d89950", "#d85d50", "#1ed278", "#ff849f"]
+var colors = ["#fd9f9a", "#ffce80", "#ebff91", "#73e2a6", "#0d64a3", "#262cc4", "#6571ff", "#ad94ff", "#984cff", "#6e00a8"]
 
 function dataloaded(error, data) {
     if (error) throw error;
@@ -172,7 +172,8 @@ function legend(datums) {
         .attr("class", "legend")
         .attr("x", 0)
         .attr("y", 0)
-        .text("Educational Attainment");
+        .text("Educational Attainment")
+        .style("font-weight", "400");
 
     //color key and label for each education level listed
     for (var i = 0; i < datums.length; i++) {
@@ -234,7 +235,7 @@ function parseData(d, i) {
 }
 
 //Taken from http://bl.ocks.org/mbostock/7555321
-//Wraps SVG text	
+//Wraps SVG text
 function wrap(text, width) {
     text.each(function () {
         var text = d3.select(this),

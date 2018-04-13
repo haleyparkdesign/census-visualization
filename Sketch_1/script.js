@@ -1,7 +1,7 @@
 var slider = d3.select("#eduRange");
 var sliderValue = 0;
 
-// Update the current slider value (each time you drag the slider handle)
+// Update the current slider value each time you drag the slider handle
 slider.on("input", function () {
     d3.selectAll(".levelText").style("font-weight", "100");
     d3.select("#edu" + this.value).style("font-weight", "800");
@@ -245,7 +245,7 @@ legend.append("rect")
     .attr("width", 150)
     .attr("height", 300)
     .attr("fill-opacity", "0")
-    .attr("stroke","#212121")
+    .attr("stroke", "#212121")
     .attr("stroke-width", 0.5)
     .attr("transform", "translate(-54, -30)");
 

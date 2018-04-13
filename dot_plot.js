@@ -23,7 +23,7 @@ var svg3 = d3.select("#pie3"),
 var svg4 = d3.select("#pie4"),
     g4 = svg4.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var color = d3.scaleOrdinal(["#a0bade", "#9794d9"]);
+var color = d3.scaleOrdinal(["#a0bade", "#907ecc"]);
 
 var pie = d3.pie()
     .sort(null)
