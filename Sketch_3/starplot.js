@@ -53,7 +53,7 @@ function dataloaded(error, data) {
 
             d3.event.stopPropagation();
         });
-
+    d3.select("rect").click();
 }
 
 //plots the grid of the chart, based upon a sample datum which defines the number of radial segments and the levels of values
