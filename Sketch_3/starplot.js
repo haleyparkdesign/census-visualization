@@ -18,7 +18,7 @@ var queue = d3.queue()
     .defer(d3.csv, "Sketch_3/income_education_condensed.csv", parseData)
     .await(dataloaded);
 
-var colors = ["#5b2c36", "#de413a", "#ebcdd5", "#c58f69", "#233b5d", "#8f9190", "#09585d", "#9b9740", "#5285c4", "#6e00a8"]
+var colors = ["#5b2c36", "#de413a", "#ebcdd5", "#c58f69", "#233b5d", "#8f9190", "#09585d", "#9b9740", "#5285c4", "#f8a8a5"]
 
 function dataloaded(error, data) {
     if (error) throw error;

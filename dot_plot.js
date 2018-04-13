@@ -194,7 +194,7 @@ dotLegend.append("circle")
 
 dotLegend.append("circle")
     .attr("r", legendHeight / 3)
-    .attr("cx", 120)
+    .attr("cx", 125)
     .attr("cy", legendHeight / 3)
     .attr("stroke", "none")
     .attr("fill", "#a0bade")
@@ -203,9 +203,9 @@ dotLegend.append("circle")
 dotLegend.append("text")
     .attr("x", 50)
     .attr("y", legendHeight / 2 + 5)
-    .text("Male");
+    .text("Female");
 
 dotLegend.append("text")
-    .attr("x", 140)
+    .attr("x", 145)
     .attr("y", legendHeight / 2 + 5)
-    .text("Female");
+    .text("Male");
