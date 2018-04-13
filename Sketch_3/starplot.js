@@ -53,12 +53,6 @@ function dataloaded(error, data) {
 
             d3.event.stopPropagation();
         });
-    
-    //from https://stackoverflow.com/questions/9063383/how-to-invoke-click-event-programmatically-in-d3
-    d3.event = document.createEvent('MouseEvent');
-    d3.event.initMouseEvent("mousemove");
-    d3.select("rect").on("mousemove");
-    //end section
 }
 
 //plots the grid of the chart, based upon a sample datum which defines the number of radial segments and the levels of values
