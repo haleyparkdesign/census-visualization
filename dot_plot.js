@@ -174,28 +174,38 @@ document.getElementById("dots").src = dots();
 var legendHeight = 30;
 var dotLegend = d3.select("#dot_legend").append("svg")
     .attr("width", 800)
-    .attr("height", legendHeight);
+    .attr("height", legendHeight)
+    .attr("transform", "translate(710, -10)");
+
+dotLegend.append("rect")
+    .attr("width", 200)
+    .attr("height", legendHeight)
+    .attr("fill-opacity", "0")
+    .attr("stroke", "#212121")
+    .attr("stroke-width", 0.5)
 
 dotLegend.append("circle")
-    .attr("r", legendHeight/2)
-    .attr("cx", 300)
-    .attr("cy", legendHeight/2)
+    .attr("r", legendHeight / 3)
+    .attr("cx", 30)
+    .attr("cy", legendHeight / 3)
     .attr("stroke", "none")
-    .attr("fill", "#9794d9");
-          
+    .attr("fill", "#9794d9")
+    .attr("transform", "translate(0, 5)");
+
 dotLegend.append("circle")
-    .attr("r", legendHeight/2)
-    .attr("cx", 500)
-    .attr("cy", legendHeight/2)
+    .attr("r", legendHeight / 3)
+    .attr("cx", 120)
+    .attr("cy", legendHeight / 3)
     .attr("stroke", "none")
-    .attr("fill", "#a0bade");
+    .attr("fill", "#a0bade")
+    .attr("transform", "translate(0, 5)");
 
 dotLegend.append("text")
-    .attr("x", 330)
-    .attr("y", legendHeight/2+10)
+    .attr("x", 50)
+    .attr("y", legendHeight / 2 + 5)
     .text("Male");
 
 dotLegend.append("text")
-    .attr("x", 530)
-    .attr("y", legendHeight/2+10)
+    .attr("x", 140)
+    .attr("y", legendHeight / 2 + 5)
     .text("Female");

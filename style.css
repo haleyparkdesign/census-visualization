@@ -192,6 +192,10 @@ h2 {
 
 /*plot 2 styles*/
 
+.sketch2-container {
+    margin-top: -20px;
+}
+
 .sketch2-container .row {
     display: flex;
 }
