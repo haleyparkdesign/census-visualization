@@ -57,7 +57,7 @@ function dataloaded(error, data) {
     //from https://stackoverflow.com/questions/9063383/how-to-invoke-click-event-programmatically-in-d3
     d3.event = document.createEvent('MouseEvent');
     d3.event.initMouseEvent("mousemove");
-    d3.select("rect").on("mousemove")();
+    d3.select("rect").on("mousemove");
     //end section
 }
 
