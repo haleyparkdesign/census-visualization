@@ -104,27 +104,28 @@ d3.select(".values-list").on("change", function () {
 var showPie = "18 to 24 years";
 
 d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", function (d) {
-    var ageData;
     typeDispatch.on("changePie", function (type, i) {
         showPie = type;
         // update element and functions according to the type selected
         if (showPie === "18 to 24 years") {
-            ageData = d.filter(function (row) {
+           d = d.filter(function (row) {
                 return row.Age == "18 to 24 years"
             });
         } else if (showPie === "25 to 29 years") {
-            ageData = d.filter(function (row) {
+            d = d.filter(function (row) {
                 return row.Age == "25 to 29 years"
             });
         } else if (showPie === "30 to 34 years") {
-            ageData = d.filter(function (row) {
+            d = d.filter(function (row) {
                 return row.Age == "30 to 34 years"
             });
         }
     })
-
+    
+    console.log("d is "+d);
+    
     var arc0 = g.selectAll(".arc")
-        .data(pie(ageData))
+        .data(pie(d))
         .enter().append("g")
         .attr("class", "arc");
 
@@ -137,7 +138,7 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
         .style('stroke-width', 0);
 
     var arc1 = g1.selectAll(".arc")
-        .data(pie1(ageData))
+        .data(pie1(d))
         .enter().append("g")
         .attr("class", "arc");
 
@@ -149,7 +150,7 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
         .style('stroke-width', 0);
 
     var arc2 = g2.selectAll(".arc")
-        .data(pie2(ageData))
+        .data(pie2(d))
         .enter().append("g")
         .attr("class", "arc");
 
@@ -161,7 +162,7 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
         .style('stroke-width', 0);
 
     var arc3 = g3.selectAll(".arc")
-        .data(pie3(ageData))
+        .data(pie3(d))
         .enter().append("g")
         .attr("class", "arc");
 
@@ -173,7 +174,7 @@ d3.csv("data/Education/Educational_Attainment_of_the_Population_2017.csv", funct
         .style('stroke-width', 0);
 
     var arc4 = g4.selectAll(".arc")
-        .data(pie4(ageData))
+        .data(pie4(d))
         .enter().append("g")
         .attr("class", "arc");
 
