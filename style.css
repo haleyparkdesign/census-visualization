@@ -6,6 +6,11 @@ html {
     font-weight: 300;
 }
 
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
     color: #141414;
