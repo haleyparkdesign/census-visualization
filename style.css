@@ -6,10 +6,6 @@ html {
     font-weight: 300;
 }
 
-body {
-    width: 100%;
-    overflow-x: hidden;
-}
 
 a {
     text-decoration: none;
@@ -210,7 +206,9 @@ h2 {
 /*plot 2 styles*/
 
 .sketch2-container {
+    width: 1000px;
     margin-top: -20px;
+    overflow-x: hidden;
 }
 
 .sketch2-container .content,
