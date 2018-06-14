@@ -14,6 +14,10 @@ a {
     font-size: 14px;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 .head {
     width: 100%;
     display: flex;
