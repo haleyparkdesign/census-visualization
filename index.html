@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3: Census Data</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:300,400,600|Roboto+Mono:300,400" rel="stylesheet">
     <link href="normalize.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
@@ -19,7 +20,7 @@
     <div class="container">
         <h1>Education in the U.S.:<br>A Breakdown of Demographics</h1>
         <div class="content">
-            <p>This project visualizes census data on education. Around the U.S. access to education and quality of education are not uniform. The attainment of education varies by state of residence, age, and sex, amongst other factors. Education leads to differences in income as well. The visualizations below explain these phenomena.</p><br>
+            <p>This project visualizes census data on education. Around the U.S. access to education and quality of education are not uniform. The attainment of education varies by state of residence, age, and sex, amongst other factors. Education leads to differences in income as well. The visualizations below explain these phenomena.</p><br><br>
             <h2>Educational Attainment By State</h2>
             <p>The size of the blob represents the percentage of people who attained the level of education, in population 25 years or older. </p><br><br><br><br>
             <div class="sketch1-container">
@@ -40,7 +41,7 @@
                 <a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_S1501" target="_blank"><span>Data source:<br>U.S. Census Bureau</span></a>
                 <p>About 17.5% of Puerto Ricans attain less than a high school degree. Washington D.C. ranked the highest in the percentage of attaining graduate or professional degree with a big gap between Massachusetts, which came in second.</p>
             </div>
-            <br><br>
+            <br><br><br>
 
             <h2>Educational Attainment Broken Down Into Age Groups</h2>
             <p>The two axes of this diagram are age group and level of highest education. Each dot is colored to indicate the distribution of individuals by sex.</p>
@@ -63,28 +64,28 @@
                         <div>
                             <h3>High School</h3>
                             <div class="overlay">
-                                <img class="dots" id="dots" alt="dots"/>
+                                <img class="dots" id="dots" alt="dots" />
                                 <svg class="pie" id="pie" width="168" height="168"></svg>
                             </div>
                         </div>
                         <div>
                             <h3>Bachelors</h3>
-                            <img class="dots" id="dots1" alt="dots" width="168" height="168"/>
+                            <img class="dots" id="dots1" alt="dots" width="168" height="168" />
                             <svg class="pie" id="pie1" width="168" height="168"></svg>
                         </div>
                         <div>
                             <h3>Masters</h3>
-                            <img class="dots" id="dots2" alt="dots" width="168" height="168"/>
+                            <img class="dots" id="dots2" alt="dots" width="168" height="168" />
                             <svg class="pie" id="pie2" width="168" height="168"></svg>
                         </div>
                         <div>
                             <h3>Doctorate</h3>
-                            <img class="dots" id="dots3" alt="dots" width="168" height="168"/>
+                            <img class="dots" id="dots3" alt="dots" width="168" height="168" />
                             <svg class="pie" id="pie3" width="168" height="168"></svg>
                         </div>
                         <div>
                             <h3>Professional</h3>
-                            <img class="dots" id="dots4" alt="dots" width="168" height="168"/>
+                            <img class="dots" id="dots4" alt="dots" width="168" height="168" />
                             <svg class="pie" id="pie4" width="168" height="168"></svg>
                         </div>
                     </div>
@@ -121,35 +122,35 @@
                         <div>
                             <h3>High School</h3>
                             <div class="overlay">
-                                <img class="dots" id="dots" alt="dots" src="dot_template.png"/>
+                                <img class="dots" id="dots" alt="dots" src="dot_template.png" />
                                 <svg class="pie" id="pie3-0" width="168" height="168"></svg>
                             </div>
                         </div>
                         <div>
                             <h3>Bachelors</h3>
-                            <img class="dots" id="dots1" alt="dots" width="168" height="168"src="dot_template.png" />
+                            <img class="dots" id="dots1" alt="dots" width="168" height="168" src="dot_template.png" />
                             <svg class="pie" id="pie3-1" width="168" height="168"></svg>
                         </div>
                         <div>
                             <h3>Masters</h3>
-                            <img class="dots" id="dots2" alt="dots" width="168" height="168" src="dot_template.png"/>
+                            <img class="dots" id="dots2" alt="dots" width="168" height="168" src="dot_template.png" />
                             <svg class="pie" id="pie3-2" width="168" height="168"></svg>
                         </div>
                         <div>
                             <h3>Doctorate</h3>
-                            <img class="dots" id="dots3" alt="dots" width="168" height="168" src="dot_template.png"/>
+                            <img class="dots" id="dots3" alt="dots" width="168" height="168" src="dot_template.png" />
                             <svg class="pie" id="pie3-3" width="168" height="168"></svg>
                         </div>
                         <div>
                             <h3>Professional</h3>
-                            <img class="dots" id="dots4" alt="dots" width="168" height="168" src="dot_template.png"/>
+                            <img class="dots" id="dots4" alt="dots" width="168" height="168" src="dot_template.png" />
                             <svg class="pie" id="pie3-4" width="168" height="168"></svg>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <br><br><br>
+            <br><br><br><br>
 
             <h2>Annual Income Distribution, By Educational Attainment</h2>
             <p>Select different education levels to see the income for each bracket of the group. Click the box to activate the layer. Distance from the center represents the percent earning at that level.</p>
@@ -161,8 +162,8 @@
     <script src="Sketch_1/data/us_states.json"></script>
     <script src="Sketch_1/script.js"></script>
     <script src="dot_plot.js"></script>
-<!--    <script src="dot_plot_2.js"></script>-->
+    <!--    <script src="dot_plot_2.js"></script>-->
     <script src="Sketch_3/starplot.js"></script>
 </body>
-</html>
 
+</html>
