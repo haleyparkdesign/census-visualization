@@ -10,6 +10,6 @@ Students were asked to design a 2D visualization using data from the US Census.
 <br><br><br>
 
 ## Links
-[URL](https://haleypark.design/census-visualization/)
+[URL](https://haleyparkdesign.github.io/census-visualization/)
 
 [Course website](https://irenedelatorre.github.io/MIT-Design-Studio-Information-and-Visualization/)
